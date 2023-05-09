@@ -9,3 +9,5 @@ The following is a high-level overview of the fairness metrics ontology:
 
 The full ontology is shown in diagram form below:
 ![High-level concept map](diagrams/FairnessOntologyFull.png "Full Concept Map")
+
+The Fairness Metrics Ontology was created through the [Health, Empowerment by Analytics, Learning, and Semantics (HEALS) project](https://idea.rpi.edu/research/projects/heals) through joint collaboration by Rensselaer Polytechnic and IBM, and is partially supported by IBM Research AI through the AI Horizons Network.
