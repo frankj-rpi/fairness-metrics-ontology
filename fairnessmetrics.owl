@@ -1,0 +1,3482 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://purl.org/heals/fmo#"
+     xml:base="https://purl.org/heals/fmo"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:fmo="https://purl.org/twc/fmo#"
+     xmlns:mlo="http://www.a2rd.net.br/mlo#mlo:"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:cito="http://purl.org/spar/cito/"
+     xmlns:doap="http://usefulinc.com/ns/doap#"
+     xmlns:foaf="http://xmlns.com/foaf/0.1/"
+     xmlns:mlo1="http://www.semanticweb.org/user/ontologies/2020/0/ml-ontology#mlo:"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="http://purl.org/vocab/vann/"
+     xmlns:void="http://rdfs.org/ns/void#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="http://schema.org/"
+     xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
+     xmlns:resource="http://semanticscience.org/resource/">
+    <owl:Ontology rdf:about="https://purl.org/heals/fmo">
+        <owl:versionIRI rdf:resource="https://purl.org/heals/fmo/1.0.0"/>
+        <owl:imports rdf:resource="http://semanticscience.org/ontology/sio/v1.54/sio-release.owl"/>
+        <owl:imports rdf:resource="http://www.a2rd.net.br/mlo/10.0"/>
+        <owl:imports rdf:resource="http://www.w3.org/TR/skos-reference/skos-owl1-dl.rdf"/>
+        <owl:imports rdf:resource="https://purl.org/heals/stato-subset"/>
+        <terms:abstract xml:lang="en">To aid in the development of fair ML models, and provide guidance to researchers on how best to utilize fairness notions and metrics, we present the Fairness Metrics Ontology (FMO). FMO is a comprehensive knowledge resource which defines each fairness notion and metric, describes their use cases, and details the relationships between them. FMO also includes related concepts for describing ML models, such as the statistical metrics used to evaluate them, and defines how each fairness notion can be derived from these metrics. Although FMO can be used as a standalone resource by itself, it is also designed to be used to model fairness information for specific ML models in a Resource Description Framework (RDF) knowledge graph, and can be combined with a reasoner to infer fairness notions a model satisfies according to its evaluation metrics.</terms:abstract>
+        <terms:contributor>Deborah L. McGuinness</terms:contributor>
+        <terms:contributor>Jamie McCusker</terms:contributor>
+        <terms:contributor>Kristin P. Bennett</terms:contributor>
+        <terms:contributor>Mohamed Ghalwash</terms:contributor>
+        <terms:creator>Jade S. Franklin</terms:creator>
+        <rdfs:label xml:lang="en">Fairness Metrics Ontology</rdfs:label>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000118 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/IAO_0000118"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000404 -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.obolibrary.org/obo/STATO_0000404"/>
+    
+
+
+    <!-- http://purl.org/dc/elements/1.1/source -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/elements/1.1/source"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/abstract -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/abstract"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/hasSynonym -->
+
+    <owl:AnnotationProperty rdf:about="http://semanticscience.org/resource/hasSynonym"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#type -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#type"/>
+    
+
+
+    <!-- https://purl.org/heals/fmo#display_order -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/heals/fmo#display_order">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mapsTo -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/heals/fmo#mapsTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mathematical_definition -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/heals/fmo#mathematical_definition">
+        <rdfs:label xml:lang="en">A definition for a mathematical concept, formally defined in LaTeX.</rdfs:label>
+        <rdfs:label xml:lang="en">mathematical definition</rdfs:label>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://purl.org/heals/fmo#probabilistic_definition -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/heals/fmo#probabilistic_definition">
+        <rdfs:label xml:lang="en">probabilistic definition</rdfs:label>
+        <skos:definition xml:lang="en">A definition for a mathematical concept, formally defined using a probalistic expression.</skos:definition>
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000008 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000008"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000011 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000011"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000053 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000053"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000068 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000068"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000093 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000093"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000095 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000095"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000215 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000215"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000229 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000229"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000230 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000230"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000232 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000232"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000244 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000244"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000365 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000365"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000668 -->
+
+    <owl:ObjectProperty rdf:about="http://semanticscience.org/resource/SIO_000668"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/IAO_0000030 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/IAO_0000030"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000053 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000053">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#condition_negative"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_positive_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">fall-out</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">probability of false alarm</obo:IAO_0000118>
+        <obo:STATO_0000404 xml:lang="en">FPR</obo:STATO_0000404>
+        <rdfs:label>false positive rate</rdfs:label>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 1 | Y=0 )</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000107 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000107"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000134 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000134">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#condition_negative"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_negative_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">selectivity</obo:IAO_0000118>
+        <obo:STATO_0000404 xml:lang="en">TNR</obo:STATO_0000404>
+        <rdfs:label>true negative rate</rdfs:label>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 0 | Y=0 )</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000184 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000184"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000220 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000220">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#condition_positive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_negative_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">miss rate</obo:IAO_0000118>
+        <obo:STATO_0000404 xml:lang="en">FNR</obo:STATO_0000404>
+        <rdfs:label>false negative rate</rdfs:label>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 0 | Y=1 )</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000233 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000233">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#condition_positive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_positive_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">hit rate</obo:IAO_0000118>
+        <obo:STATO_0000404 xml:lang="en">TPR</obo:STATO_0000404>
+        <rdfs:label>true positive rate</rdfs:label>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 1 | Y=1 )</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000412 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000412">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#condition_positive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#total_outcome_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">PREV</obo:STATO_0000404>
+        <rdfs:label>prevalence</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000415 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000415">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#total_outcome_count"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_negative_count"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_positive_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">ACC</obo:STATO_0000404>
+        <rdfs:label>accuracy</rdfs:label>
+        <probabilistic_definition xml:lang="en">P(Ŷ = Y)</probabilistic_definition>
+        <probabilistic_definition xml:lang="en">P[Ŷ = Y]</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/STATO_0000416 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/STATO_0000416">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_positive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_positive_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">PPV</obo:STATO_0000404>
+        <rdfs:label>positive predictive value</rdfs:label>
+        <probabilistic_definition xml:lang="en">P( Y = 1 | Ŷ=1 )</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000006 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000006"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000052 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000052"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000075 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000075"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000089 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000089"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000094 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000094"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000289 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000289"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000465 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000465"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000510 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000510"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000794 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_000794"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001109 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_001109"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001112 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_001112"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001113 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_001113"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_001114 -->
+
+    <owl:Class rdf:about="http://semanticscience.org/resource/SIO_001114"/>
+    
+
+
+    <!-- http://www.a2rd.net.br/mlo#Algorithms -->
+
+    <rdf:Description rdf:about="http://www.a2rd.net.br/mlo#Algorithms">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.techtarget.com/whatis/definition/machine-learning-algorithm</dc:source>
+        <rdfs:label xml:lang="en">ML Algorithm</rdfs:label>
+        <skos:definition xml:lang="en">The method by which a machine learning model operates or is created by.</skos:definition>
+    </rdf:Description>
+    
+
+
+    <!-- http://www.a2rd.net.br/mlo#Clustering -->
+
+    <rdf:Description rdf:about="http://www.a2rd.net.br/mlo#Clustering">
+        <rdfs:label xml:lang="en">Clustering Algorithm</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Deep_Clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#Deep_Clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source>https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Deep Clustering</rdfs:label>
+        <skos:definition xml:lang="en">Deep clustering is the combination of deep learning paradigms to the classical clustering approaches in unsupervised learning. The approaches used are different from traditional clustering, and usually require the existence of labels in the testing phase to evaluate the deep learning models using metrics.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#FairKM -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#FairKM">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#in-processing_bias_mitigation_method"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://www.a2rd.net.br/mlo#k-Means"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#FairKM_Objective"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <resource:hasSynonym xml:lang="en">FairKM</resource:hasSynonym>
+        <rdfs:label xml:lang="en">Fair k-Means</rdfs:label>
+        <skos:definition xml:lang="en">An in-processing ML algorithm that is a modified form of the k-means clustering algorithm.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#FairKM_Objective -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#FairKM_Objective">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster_objective_cost"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sum-over-clusters_clustering_fairness_metric"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1910.05113</dc:source>
+        <rdfs:label xml:lang="en">FairKM clustering objective</rdfs:label>
+        <skos:definition xml:lang="en">The clustering objective used in the FairKM algorithm. Calculated as the group-specific deviation of each cluster summed over all protected groups, weighted by the square of the cluster&apos;s fractional representation over the entire dataset, and summed over all clusters.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Jung_individual_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#Jung_individual_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://arxiv.org/abs/1908.09041</dc:source>
+        <resource:hasSynonym xml:lang="en">Jung et al individual fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">Jung individual fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is fair if each center serves approximately the same number of data
+points and the center for each data point is no farther than the n/kth farthest other
+data point.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Kleindessner_individual_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#Kleindessner_individual_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/2006.04960.pdf</dc:source>
+        <rdfs:label xml:lang="en">Kleindessner individual fairness</rdfs:label>
+        <skos:definition xml:lang="en">A data point is individually fair if the average distance from it to the other points
+in its cluster is not greater than the average distance from it to points in other
+clusters.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#ML_model_result -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#ML_model_result">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000075"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:label xml:lang="en">ML model result</rdfs:label>
+        <skos:definition xml:lang="en">A result output by a model, given some specific input.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#aggregate_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#aggregate_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000232"/>
+                                <owl:allValuesFrom rdf:resource="https://purl.org/heals/fmo#k-center"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/2106.05423.pdf</dc:source>
+        <rdfs:label xml:lang="en">aggregational fairness</rdfs:label>
+        <skos:definition xml:lang="en">Every point j has a set of points S that it percieves as similar to itself. A fair clustering will give point j an alpha close treatment as those in S. A clustering is fair if the quality of service j recieves(distance from center) is at most a times the average quality in S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label>algorithm-agnostic clustering fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is not derived from some specifiic clustering objective or ML algorithm for clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#algorithm-agnostic_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#algorithm-agnostic_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <owl:disjointWith rdf:resource="https://purl.org/heals/fmo#algorithm-specific_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <resource:hasSynonym xml:lang="en">algorithm-agnostic fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">algorithm-agnostic fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is not restricted to use with some specific ML algorithm(s) (beyond requirements for modeling output as classificaiton, clustering, etc.)</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000232"/>
+                                <owl:allValuesFrom rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">algorithm-specific clustering fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is derived from some specifiic clustering objective or ML algorithm for clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#algorithm-specific_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#algorithm-specific_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000232"/>
+                                <owl:allValuesFrom rdf:resource="http://www.a2rd.net.br/mlo#Algorithms"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <resource:hasSynonym xml:lang="en">algorithm-agnostic fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">algorithm-specific fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is not restricted to use with some specific ML algorithm(s) (beyond requirements for modeling output as classificaiton, clustering, etc.)</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#algorithmic_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#algorithmic_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3457607</dc:source>
+        <rdfs:label xml:lang="en">algorithmic bias</rdfs:label>
+        <skos:definition xml:lang="en">Algorithmic bias is when the bias is not present in the input data and is
+added purely by the algorithm.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#alpha-pairwise_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#alpha-pairwise_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000232"/>
+                                <owl:allValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.researchgate.net/publication/342975966_A_Pairwise_Fair_and_Community-preserving_Approach_to_k-Center_Clustering/link/60622036458515e8347d7a88/download</dc:source>
+        <rdfs:label xml:lang="en">alpha-pairwise fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is Alpha pairwise Fair if every pair of points has a probability of at
+least alpha of being assigned to different centers where alpha is a function of 
+distance between the points.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#average_cohort_clustering_objective_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#average_cohort_clustering_objective_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_statistical_metric"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#per-cohort_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001109"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_objective_cost"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">average cohort clustering objective cost</rdfs:label>
+        <skos:definition xml:lang="en">The average clustering objective cost over all points in one specific dataset cohort.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#average_distance_from_the_center -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#average_distance_from_the_center">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster_objective_cost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001109"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#distance_from_the_center"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">average distance from the center</rdfs:label>
+        <skos:definition xml:lang="en">The average distance of a point from its assigned cluster&apos;s centroid, for all points in a clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#balance_for_negative_class -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#balance_for_negative_class">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#predictive_equality"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#classification_probability_score"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</dc:source>
+        <rdfs:label xml:lang="en">balance for negative class</rdfs:label>
+        <skos:definition xml:lang="en">For each protected group, subjects from the negative class have equal average probability score S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#balance_for_positive_class -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#balance_for_positive_class">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#equal_opportunity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#classification_probability_score"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</dc:source>
+        <rdfs:label xml:lang="en">balance for positive class</rdfs:label>
+        <skos:definition xml:lang="en">For each protected group, subjects from the positive class have equal average probability score S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#beta-community_preserving_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#beta-community_preserving_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.researchgate.net/publication/342975966_A_Pairwise_Fair_and_Community-preserving_Approach_to_k-Center_Clustering/link/60622036458515e8347d7a88/download</dc:source>
+        <rdfs:label xml:lang="en">beta-community preserving fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is Beta community preserving if every community has a probability of at most beta of being split into more than t clusters where beta is an increasing function of diameter D and a decreasng function of clusters t. A community is a subset of points with diameter D and does not need to be known or identified.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#bias">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.lexico.com/en/definition/bias</dc:source>
+        <rdfs:label xml:lang="en">bias</rdfs:label>
+        <skos:definition xml:lang="en">Prejudice in favor of or against one thing, person, or group compared with another, usually in a way considered to be unfair.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#bias_mitigation_method -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#bias_mitigation_method">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000094"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1016/j.jbusres.2022.01.076</dc:source>
+        <resource:hasSynonym xml:lang="en">unfairness mitigation method</resource:hasSynonym>
+        <rdfs:label xml:lang="en">bias mitigation method</rdfs:label>
+        <skos:definition xml:lang="en">A method of training or using a machine learning model to mitigate the effects of bias.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#bounded__representation_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#bounded__representation_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.semanticscholar.org/reader/d1efc73871819d4be944e23cecf5c71498bca6ea</dc:source>
+        <rdfs:label xml:lang="en">bounded representation fairness</rdfs:label>
+        <skos:definition xml:lang="en">A cluster is fair if, for all protected classes, the proportion of members of those 
+classes are within a defined bound and at most 0.5(preventing dominance).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#center-based_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#center-based_clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source>https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Center-Based Clustering</rdfs:label>
+        <skos:definition xml:lang="en">These approaches aim to partition the input dataset into clusters by minimizing an error metric between data samples assigned to a cluster, and their corresponding cluster centers</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#classification_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#classification_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">classification fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A notion of fairness used to define a classification or classification model as fair.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#classification_probability_score -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#classification_probability_score">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#ML_model_result"/>
+        <obo:STATO_0000404 xml:lang="en">S</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">classification probability score</rdfs:label>
+        <skos:definition xml:lang="en">A predicted score (S) returned by an ML model for some specific input, corresponding to the likelihood of classification as the positive or negative class.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#classification_statistical_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#classification_statistical_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_metric"/>
+        <rdfs:label xml:lang="en">A metric used to evaluate a classification model, based only on statistical methods. Typically based on the confusion matrix of results generated by a standard evaluation of a machine learning classification model.</rdfs:label>
+        <rdfs:label xml:lang="en">classification statistical metric</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000068"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000095"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">cluster</rdfs:label>
+        <skos:definition xml:lang="en">An assignment of points in a dataset to a subset (cluster). In a hard clustering, each point assigned to a cluster is not a member of any other cluster in the clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster-specific_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster-specific_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://purl.org/heals/fmo#cluster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">per-cluster fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A fairness metric computed for one specific cluster in a clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_balance -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_balance">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1802.05733</dc:source>
+        <rdfs:label xml:lang="en">cluster balance</rdfs:label>
+        <skos:definition xml:lang="en">The balance of the cluster is a measurement of a cluster&apos;s representation of two cohorts, such that a cluster consisting entirely of one cohort is unfair and a cluster evenly divided between two cohorts is fair. The balance is calculated as the minimum ratio between members of a cohort and non-members of a cohort, for both cohorts.</skos:definition>
+        <mathematical_definition xml:lang="en">\min{\frac{Y \in a_i}{Y \notin a_i}} \forall a_i \in A</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_balance_equality -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_balance_equality">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://papers.nips.cc/paper/2017/file/978fce5bcc4eccc88ad48ce3914124a2-Paper.pdf</dc:source>
+        <rdfs:label xml:lang="en">cluster balance equality</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is considered fair according to this notion if each cluster has an equal number of each cohort.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_entropy -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_entropy">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_entropy_fairness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://openaccess.thecvf.com/content_CVPR_2020/papers/Li_Deep_Fair_Clustering_for_Visual_Learning_CVPR_2020_paper.pdf</dc:source>
+        <rdfs:label xml:lang="en">cluster entropy</rdfs:label>
+        <skos:definition xml:lang="en">A cluster&apos;s entropy reflects its distribution of predictions as well as how unfair the cluster is. Low entropy reveals that one subgroup of samples only assigns to a few clusters. A cluster has a high entropy if it is independent of protected attributes.</skos:definition>
+        <mathematical_definition xml:lang="en">-\sum_i^{\frac{|C_i ∩ X_g|}{n_{i+})log\frac{|Ci ∩ Xg|}{n_{i+}}</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_entropy_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_entropy_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence_class_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://openaccess.thecvf.com/content_CVPR_2020/papers/Li_Deep_Fair_Clustering_for_Visual_Learning_CVPR_2020_paper.pdf</dc:source>
+        <resource:hasSynonym xml:lang="en">deep fairness for clustering</resource:hasSynonym>
+        <rdfs:label xml:lang="en">cluster entropy fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is considered fair according to this notion if it is group invariant and independent of protected attributes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_objective_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_objective_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1802.05733</dc:source>
+        <rdfs:label xml:lang="en">clustering objective cost</rdfs:label>
+        <skos:definition xml:lang="en">The cost of a clustering. Typically, this cost is minimized in a clustering algorithm, and is calculated differently according to which clustering objective(s) are selected.</skos:definition>
+        <mathematical_definition xml:lang="en">\min{\frac{Y \in a_i}{Y \notin a_i}} \forall a_i \in A</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_proportion_preservation -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_proportion_preservation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <dc:source xml:lang="en">https://doi.org/10.48550/arXiv.2106.07239</dc:source>
+        <resource:hasSynonym xml:lang="en">Abraham et al Group Fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">cluster proportion preservation</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is considered fair according to this notion if each cluster preserves the proportional representation of each cohort in the original dataset and in each cluster.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#cluster_proportional_violation -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#cluster_proportional_violation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <rdfs:label xml:lang="en">cluster proportion violation</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of a cluster&apos;s violation of the proportionality constraint, calculated as the maximum absolute value of the ratio in each cluster between the actual proportion of a cohort to the expected proportion of the cohort (based on known proportions in the data).</skos:definition>
+        <mathematical_definition xml:lang="en">\max{\frac{\frac{Y \in a_i}{Y \notin a_i}{\frac{X \in a_i}{X \notin a_i}} - 1} \forall a_i \in A</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000289"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#ML_model_result"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.w3.org/2004/02/skos/core#member"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">&apos;C&apos;</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">clustering</rdfs:label>
+        <skos:definition xml:lang="en">A set of clusters defined over some specific dataset. In a &quot;hard clustering,&quot; every point in the dataset is assigned to exactly one cluster, whereas in a &quot;soft clustering&quot; every point is assigned to at least one cluster. The superset of all points in all clusters is equal to the set of all points in the clustering and dataset.</skos:definition>
+        <skos:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering_balance -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering_balance">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#min-over-clusters_clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1802.05733</dc:source>
+        <rdfs:label xml:lang="en">clustering balance</rdfs:label>
+        <skos:definition xml:lang="en">The balance of a clustering as a whole is defined as the minimum balance value across all clusters.</skos:definition>
+        <mathematical_definition xml:lang="en">\min{balance(C_i)} \forall C_i \in C</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering_entropy -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering_entropy">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#max-over-clusters_clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_entropy_fairness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_entropy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://openaccess.thecvf.com/content_CVPR_2020/papers/Li_Deep_Fair_Clustering_for_Visual_Learning_CVPR_2020_paper.pdf</dc:source>
+        <rdfs:label xml:lang="en">clustering entropy</rdfs:label>
+        <skos:definition xml:lang="en">A clustering&apos;s entropy as a whole is the maximum of the entropy of each of its clusters.</skos:definition>
+        <mathematical_definition xml:lang="en">\max{entropy(C_i)} \forall C_i \in C</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">clustering fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A metric to measure the fairness of a set of clusters, with regards to some specific cohort(s).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">clustering fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A definition of fairness used to define a clustering or clustering model as fair.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#clustering_statistical_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#clustering_statistical_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">clustering statistical metric</rdfs:label>
+        <skos:definition xml:lang="en">A statistical metric which accepts as input an entire clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#combinatorial_search-based_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#combinatorial_search-based_clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Combinatorial Search-based Clustering</rdfs:label>
+        <skos:definition xml:lang="en">Exactly solving most clustering optimization objectives can be NP-Hard as there often exists an exponential search space of clustering solutions. Thus, the clustering problem can be reformulated as a combinatorial optimization problem, and local search approaches can be used to approximate the optimal clustering solution.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#condition_negative -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#condition_negative">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <obo:STATO_0000404 xml:lang="en">N</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">condition negative</rdfs:label>
+        <skos:definition xml:lang="en">The number of real negative cases in the data.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#condition_positive -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#condition_positive">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <obo:STATO_0000404 xml:lang="en">P</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">condition positive</rdfs:label>
+        <skos:definition xml:lang="en">The number of real positive cases in the data.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#conditional_statistical_parity -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#conditional_statistical_parity">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#positive_prediction_rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">conditional statistical parity</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has the same positive rate when controlling for a set of legitimate attributes L.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#conditional_use_accurace_equality -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#conditional_use_accurace_equality">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#equal_negative_predictive_value"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#predictive_parity"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sufficiency"/>
+        <obo:IAO_0000118 xml:lang="en">overall predictive parity</obo:IAO_0000118>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">conditional use accuracy equality</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has the same positive and negative predictive value; in other words, the probability of subjects with positive predictive value to
+truly belong to the positive class and the probability of subjects with negative predictive value to truly belong to the
+negative class is the same among all protected classes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#dataset_cohort -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#dataset_cohort">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000093"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source>https://agrovoc.fao.org/browse/agrovoc/en/page/?uri=c_13accfa8</dc:source>
+        <rdfs:label xml:lang="en">dataset cohort</rdfs:label>
+        <skos:definition xml:lang="en">A subset of subjects in an ML dataset who share a defining characteristic.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#deep_fair_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#deep_fair_clustering">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#in-processing_bias_mitigation_method"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#Deep_Clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering_balance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering_entropy"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://openaccess.thecvf.com/content_CVPR_2020/papers/Li_Deep_Fair_Clustering_for_Visual_Learning_CVPR_2020_paper.pdf</dc:source>
+        <rdfs:label xml:lang="en">Deep Fair Clustering</rdfs:label>
+        <skos:definition xml:lang="en">A method of finding fair clusters, via an objective function that takes into account cluster balance and cluster entropy.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#difference-based_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#difference-based_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">difference-based fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by the relative differences of measurements of cohorts within a dataset.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#disparate_impact -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#disparate_impact">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#ratio-based_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#statistical_parity"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">disparate impact</rdfs:label>
+        <skos:definition xml:lang="en">The ratio comparing the rate at which an unprivileged group recieves a positive outcome, compared to the rate at which a privileged group recieves a positive outcome. It is calculated as the positive rate of the protected cohort divided by the positive rate of the unprotect cohort. In general, the industry standard is that disparate impact must be no less than 0.80 in order for the assignment of the positive condition to be fair.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#distance_from_the_center -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#distance_from_the_center">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_statistical_metric"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#per-point_statistical_metric"/>
+        <rdfs:label xml:lang="en">distance from the center</rdfs:label>
+        <skos:definition xml:lang="en">The distance of a point from some cluster centroid</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#distributional_individual_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#distributional_individual_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/abs/2006.12589</dc:source>
+        <rdfs:label xml:lang="en">distributional individual fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is fair if the statistical distance of the f-divergence of the distribution of each pair of samples is smaller than the distance using the F metric that measures fairness between pairs of points.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#diversity-aware_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#diversity-aware_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://arxiv.org/abs/2106.11696</dc:source>
+        <rdfs:label xml:lang="en">diversity-aware fairness</rdfs:label>
+        <skos:definition xml:lang="en">A diversity aware fair clustering should contain at least a center from every group.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#egalitarian_fair_clustering_under_a_bounded_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#egalitarian_fair_clustering_under_a_bounded_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fair_clustering_under_a_bounded_cost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#group_egalitarian_clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2106.07239</dc:source>
+        <resource:hasSynonym xml:lang="en">egalitarian FCBC</resource:hasSynonym>
+        <rdfs:label xml:lang="en">egalitarian fair clustering under a bounded cost</rdfs:label>
+        <skos:definition xml:lang="en">The fundamental idea of fair clustering under a bounded cost (FCBC) is to minimize a measure of unfairness subject to an upper bound on the clustering cost.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#equal_accuracy_for_regression -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#equal_accuracy_for_regression">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1906.05330</dc:source>
+        <rdfs:label xml:lang="en">equal accuracy for regression</rdfs:label>
+        <skos:definition xml:lang="en">Error is independent of sensitive attribute.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#equal_negative_predictive_value -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#equal_negative_predictive_value">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sufficiency_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#negative_predictive_value"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1111/papa.12189</dc:source>
+        <rdfs:label xml:lang="en">equal negative predictive value</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has equal negative predicted value; in other words, the predicted percentage of individuals predicted to be negative who are actually negative is the same for each relevant group.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#equal_opportunity -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#equal_opportunity">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#separation_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/STATO_0000220"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">false negative error rate balance</obo:IAO_0000118>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">equal opportunity</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has the same true positive rate; in other words, the positive outcome is given equally across members of all protected classes which should qualify for it.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#equal_opportunity_for_regression -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#equal_opportunity_for_regression">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1906.05330</dc:source>
+        <rdfs:label xml:lang="en">equal opportunity for regression</rdfs:label>
+        <skos:definition xml:lang="en">Probability of predicted outcome being greater than the actual outcome is independent of the sensitive attribute.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#equalized_odds -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#equalized_odds">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#equal_opportunity"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#predictive_equality"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#separation"/>
+        <obo:IAO_0000118 xml:lang="en">conditional procedure accuracy equality</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">disparate mistreatment</obo:IAO_0000118>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">equalized odds</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has the same true positive rate and the same false positive rate: in other words, all classes are classified correctly and classified incorrectly at equal rates.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#error_type_ratio -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#error_type_ratio">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_negative_count"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_positive_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">false positive to false negative ratio</obo:IAO_0000118>
+        <obo:STATO_0000404 xml:lang="en">FP:FN</obo:STATO_0000404>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1097/EDE.0b013e31821b506e</dc:source>
+        <rdfs:label xml:lang="en">error type ratio</rdfs:label>
+        <skos:definition xml:lang="en">The ratio of false positive outcomes to false negative outcomes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#essential_cluster_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#essential_cluster_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://drops.dagstuhl.de/opus/volltexte/2019/11233/pdf/LIPIcs-APPROX-RANDOM-2019-18.pdf</dc:source>
+        <rdfs:label xml:lang="en">essential cluster fairness</rdfs:label>
+        <skos:definition xml:lang="en">A cluster is essentially fair if there exists a fractional fair cluster where for each
+color h, the number of color h points in C differ by at most 1 from the mass of color h points in C&apos;.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#evaluation_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#evaluation_metric">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000052"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">evaluation metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement used to evaluate a machine-learning model or dataset.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fair_clustering_under_a_bounded_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fair_clustering_under_a_bounded_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#post-processing_bias_mitigation_method"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2106.07239</dc:source>
+        <resource:hasSynonym xml:lang="en">FCBC</resource:hasSynonym>
+        <rdfs:label xml:lang="en">fair clustering under a bounded cost</rdfs:label>
+        <skos:definition xml:lang="en">The fundamental idea of fair clustering under a bounded cost (FCBC) is to minimize a measure of unfairness subject to an upper bound on the clustering cost.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fair_summary_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fair_summary_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#k-center"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.semanticscholar.org/reader/9c26bbf34bdab544a000038d628a8fb232d60cb6</dc:source>
+        <rdfs:label xml:lang="en">fair summary fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is fair if the protected group are equally represented in the summary
+(set of centroids).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fairlet_decomposition -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fairlet_decomposition">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#pre-processing_bias_mitigation_method"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#clustering_balance"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#k-center"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1802.05733</dc:source>
+        <rdfs:label xml:lang="en">fairlet decomposition</rdfs:label>
+        <skos:definition xml:lang="en">A method of finding fair clusters, according to the balance for clustering metric. The method models the problem as a minimum-cost flow problem, and provides an algorithm for solving the problem.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fairness_degree -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fairness_degree">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1007/s10664-022-10116-7</dc:source>
+        <rdfs:label xml:lang="en">fairness degree</rdfs:label>
+        <skos:definition xml:lang="en">Maximum difference in outcome for all indentical individuals.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#evaluation_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#dataset_cohort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fairness_notion">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#bias"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A formal definition of fairness that can be observed as a property of a predictive model, in relation to that model&apos;s treatment of different cohorts.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fairness_notion_categorization -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fairness_notion_categorization">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:label xml:lang="en">fairness notion categorization</rdfs:label>
+        <skos:definition xml:lang="en">A scheme for organizing fairness notions into categories.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_discovery_rate -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_discovery_rate">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_positive_count"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_positive"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">FDR</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">false discovery rate</rdfs:label>
+        <skos:definition xml:lang="en">the fraction of negative cases incorrectly predicted to be in the positive class out of all predicted positive cases.</skos:definition>
+        <probabilistic_definition xml:lang="en">P(Y=0 | Ŷ = 1)</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_negative_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_negative_count">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_negative_outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">FN</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">false negative count</rdfs:label>
+        <skos:definition xml:lang="en">The number of false negatives (type II errors) observed in an evaluation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_negative_outcome -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_negative_outcome">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#negative_prediction"/>
+        <obo:IAO_0000118 xml:lang="en">miss</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">type II error</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">false negative outcome</rdfs:label>
+        <skos:definition xml:lang="en">An input incorrectly classified to be false, in relation to some testing dataset which classifies it as true.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_omission_rate -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_omission_rate">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_negative_count"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_negative"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">FOR</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">false omission rate</rdfs:label>
+        <skos:definition xml:lang="en">The fraction of positive cases incorrectly predicted to be in the negative class out of all predicted negative cases.</skos:definition>
+        <probabilistic_definition xml:lang="en">P(Y=1 | Ŷ = 0)</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_positive_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_positive_count">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_positive_outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">FP</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">false positive count</rdfs:label>
+        <skos:definition xml:lang="en">The number of false positives (type I errors) observed in an evaluation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#false_positive_outcome -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#false_positive_outcome">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#positive_prediction"/>
+        <obo:IAO_0000118 xml:lang="en">false alarm</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">type I error</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">false positive outcome</rdfs:label>
+        <skos:definition xml:lang="en">An input incorrectly classified to be true, in relation to some testing dataset which classifies it as false.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#fuzzy_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#fuzzy_clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Fuzzy Clustering</rdfs:label>
+        <skos:definition xml:lang="en">Fuzzy clustering algorithms consist of soft clustering approaches where data samples have fuzzy memberships (a grade of membership between 0 and 1) to clusters instead of binary cluster assignments.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#graph-based_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#graph-based_clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Graph-Based Clustering</rdfs:label>
+        <skos:definition xml:lang="en">Graph-based clustering approaches utilize concepts from graph theory to cluster the data. This first requires translating the original dataset into a graph problem, by treating data samples as nodes/vertices in a graph, and creating edges between samples using a dissimilarity/similarity metric. The dissimilarity/similarity metric is usually defined using a distance metric between points. Then, edges can be created between nodes if points are within a certain distance threshold, often using a k-nearest-neighbor graph</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#group-level_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#group-level_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <owl:disjointWith rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <resource:hasSynonym xml:lang="en">group fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">group-level fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A family of fairness notions with the common objective to ensure that groups who differ by their sensitive attributes are treated equally. (Note: Occasionally, &quot;group fairness&quot; is used to refer to statistical parity specifically, instead of the broader meaning as defined here).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#group_egalitarian_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#group_egalitarian_clustering">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#max-over-clusters_clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportional_violation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <rdfs:label xml:lang="en">group egalitarian clustering</rdfs:label>
+        <skos:definition xml:lang="en">A group&apos;s egalitarian clustering measurement is the maximum proportion violation across all clusters.</skos:definition>
+        <mathematical_definition xml:lang="en">\max{proportional_violation(C_i)} \forall C_i \in C</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#group_leximin_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#group_leximin_clustering">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sum-over-clusters_clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportional_violation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <rdfs:label xml:lang="en">group leximin clustering</rdfs:label>
+        <skos:definition xml:lang="en">A group&apos;s leximin clustering measurement is the sum of all proportion violations across all clusters.</skos:definition>
+        <mathematical_definition xml:lang="en">\sum{proportional_violation(C_i)} \forall C_i \in C</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#group_utilitarian_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#group_utilitarian_clustering">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#max-over-clusters_clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#utilitarian_cluster_proportional_violation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <rdfs:label xml:lang="en">group utilitarian clustering</rdfs:label>
+        <skos:definition xml:lang="en">A group&apos;s egalitarian clustering measurement is the maximum proportion violation across all clusters, but subject to an upper bound and lower bound on the clustering constraint. A proportional violation is the largest deviation from the bounds. Minimize all proportional violations starting from the largest.</skos:definition>
+        <mathematical_definition xml:lang="en">\max{utilitarian_proportional_violation(C_i)} \forall C_i \in C</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#historical_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#historical_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3457607</dc:source>
+        <rdfs:label xml:lang="en">historical bias</rdfs:label>
+        <skos:definition xml:lang="en">Historical bias is caused by already existing bias and socio-technical issues in the world, and can seep into from the data generation process even given a perfect sampling and feature selection.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#in-processing_bias_mitigation_method -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#in-processing_bias_mitigation_method">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias_mitigation_method"/>
+        <owl:disjointWith rdf:resource="https://purl.org/heals/fmo#post-processing_bias_mitigation_method"/>
+        <owl:disjointWith rdf:resource="https://purl.org/heals/fmo#pre-processing_bias_mitigation_method"/>
+        <rdfs:label xml:lang="en">in-processing bias mitigation method</rdfs:label>
+        <skos:definition xml:lang="en">An in-processing bias mitigation method operates during the process to create the ML model, and may be its own ML algorithm in its own right.</skos:definition>
+        <skos:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#independence -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#independence">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#positive_prediction_rate"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">independence</rdfs:label>
+        <skos:definition xml:lang="en">The fairness property satisfied when the predicted outcome variable is independent from protected characteristics.</skos:definition>
+        <probabilistic_definition xml:lang="en">Ŷ ⊥ C</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#independence_class_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#independence_class_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">Independence-class notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of Independence.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#individual-level_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#individual-level_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <resource:hasSynonym xml:lang="en">individual fairness</resource:hasSynonym>
+        <rdfs:label xml:lang="en">individual-level fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model, such that identical individuals are treated identically.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#intersectional_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#intersectional_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">intersectional bias</rdfs:label>
+        <skos:definition xml:lang="en">Intersectional bias is a type of bias that occurs due to the combination of multiple sensitive factors.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#k-center -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#k-center">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+        <rdfs:label xml:lang="en">k-Center</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#k-medoids -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#k-medoids">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+        <rdfs:label xml:lang="en">k-Medoids</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#leximin_fair_clustering_under_a_bounded_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#leximin_fair_clustering_under_a_bounded_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fair_clustering_under_a_bounded_cost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#group_leximin_clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2106.07239</dc:source>
+        <resource:hasSynonym xml:lang="en">leximin FCBC</resource:hasSynonym>
+        <rdfs:label xml:lang="en">leximin fair clustering under a bounded cost</rdfs:label>
+        <skos:definition xml:lang="en">The fundamental idea of fair clustering under a bounded cost (FCBC) is to minimize a measure of unfairness subject to an upper bound on the clustering cost.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#machine_learning_dataset -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#machine_learning_dataset">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000089"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000053"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#dataset_cohort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">ML dataset</rdfs:label>
+        <skos:definition xml:lang="en">A dataset used in the process of creating or evaluating a machine learning model. Broadly, it is defined as a set of points.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#machine_learning_model -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#machine_learning_model">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000107"/>
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000510"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000008"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#evaluation_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000008"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#training_dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000365"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#ML_model_result"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000232"/>
+                <owl:allValuesFrom rdf:resource="http://www.a2rd.net.br/mlo#Algorithms"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">ML model</rdfs:label>
+        <skos:definition xml:lang="en">A predictive model which has been trained via a process of machine learning.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#machine_learning_model_evaluation -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#machine_learning_model_evaluation">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/IAO_0000030"/>
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000006"/>
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000229"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#evaluation_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000230"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#dataset_cohort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000230"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#evaluation_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000230"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#testing_dataset"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">ML model evaluation</rdfs:label>
+        <skos:definition xml:lang="en">An evaluation of a specific machine learning model on a set of dataset cohorts.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#masking_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#masking_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">masking bias</rdfs:label>
+        <skos:definition xml:lang="en">Masking is a form of intentional discrimination that allows decision makers with prejudicial views to mask their intentions, typically by exploiting how fairness notions are defined.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#max-over-clusters_clustering_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#max-over-clusters_clustering_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001114"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">max-over-clusters clustering fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the minimum cluster-specific fairness value over all clusters in the clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#max_fairness_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#max_fairness_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://arxiv.org/abs/2005.03197</dc:source>
+        <rdfs:label xml:lang="en">max fairness cost</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is fair if each group&apos;s proportion in each cluster is close to their
+respectively defined ideal proportion.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mean_difference_for_regression -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#mean_difference_for_regression">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence_class_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ICDM.2013.114</dc:source>
+        <rdfs:label xml:lang="en">mean difference for regression</rdfs:label>
+        <skos:definition xml:lang="en">Expected value of predicted output is independent of sensitive attribute.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#min-over-clusters_clustering_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#min-over-clusters_clustering_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001113"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">min-over-clusters clustering fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the minimum cluster-specific fairness value over all clusters in the clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mixture_model-based_clustering -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#mixture_model-based_clustering">
+        <rdfs:subClassOf rdf:resource="http://www.a2rd.net.br/mlo#Clustering"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">Mixture Model-Based Clustering</rdfs:label>
+        <skos:definition xml:lang="en">Mixture model-based clustering refers to a probabilistic clustering approach where points are assigned to clusters in a soft manner, and do not have hard memberships. Furthermore, data points are assumed to originate (and belong to) some mixture of probability distributions.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#negative_prediction -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#negative_prediction">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome"/>
+        <rdfs:label xml:lang="en">negative prediction</rdfs:label>
+        <skos:definition xml:lang="en">An ML model&apos;s prediction of the negative class for a specific input.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#negative_prediction_rate -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#negative_prediction_rate">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_negative"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#total_outcome_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">NR</obo:STATO_0000404>
+        <resource:hasSynonym xml:lang="en">negative rate</resource:hasSynonym>
+        <rdfs:label xml:lang="en">negative prediction rate</rdfs:label>
+        <skos:definition xml:lang="en">The fraction of a group which recieves a negative outcome (either true negative or false negative)</skos:definition>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 0)</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#negative_predictive_value -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#negative_predictive_value">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_negative"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_negative_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">NPV</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">negative predictive value</rdfs:label>
+        <skos:definition xml:lang="en">The fraction of negative cases correctly predicted to be in the negative class out of all predicted negative cases.</skos:definition>
+        <probabilistic_definition xml:lang="en">P(Y=0 | Ŷ = 0)</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#ommitted_variable_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#ommitted_variable_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3457607</dc:source>
+        <rdfs:label xml:lang="en">omitted variable bias</rdfs:label>
+        <skos:definition xml:lang="en">Omitted variable bias occurs when one or more important variables
+are left out of a model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#outcome -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#outcome">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#ML_model_result"/>
+        <skos:definition xml:lang="en">A classification predicted by a model, given some specific input.</skos:definition>
+        <skos:prefLabel xml:lang="en">outcome</skos:prefLabel>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#outcome_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#outcome_count">
+        <rdfs:subClassOf rdf:resource="http://semanticscience.org/resource/SIO_000794"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">outcome count</rdfs:label>
+        <skos:definition xml:lang="en">a statistical metric derived from the confusion matrix, counting the number of outcomes of various types predicted by a classification model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#overall_accuracy_equality -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#overall_accuracy_equality">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#separation_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/STATO_0000415"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">overall accuracy equality</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class is predicted with equal accuracy.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#per-cohort_statistical_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#per-cohort_statistical_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="https://purl.org/heals/fmo#dataset_cohort"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">per-cohort statistical metric</rdfs:label>
+        <skos:definition xml:lang="en">A statistical metric which accepts as input a single cohort.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#per-point_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#per-point_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#k-center"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/2106.05423.pdf</dc:source>
+        <rdfs:label xml:lang="en">per-point fairness</rdfs:label>
+        <skos:definition xml:lang="en">Every point j has a set of points S that it percieves as similar to itself. A fair clustering will give point j an α-close treatment as those in S. A clustering is fair if every point satisfies α-close, where the quality of service j recieves (distance from center) is at most α times the best quality in S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#per-point_statistical_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#per-point_statistical_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://semanticscience.org/resource/SIO_000465"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">per-point statistical metric</rdfs:label>
+        <skos:definition xml:lang="en">A statistical metric which accepts as input a single data point.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#positive_prediction -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#positive_prediction">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome"/>
+        <rdfs:label xml:lang="en">positive prediction</rdfs:label>
+        <skos:definition xml:lang="en">An ML model&apos;s prediction of the positive class for a specific input.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#positive_prediction_rate -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#positive_prediction_rate">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_statistical_metric"/>
+        <rdfs:subClassOf>
+            <owl:Class>
+                <owl:intersectionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#prediction_positive"/>
+                    </owl:Restriction>
+                    <owl:Restriction>
+                        <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                        <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#total_outcome_count"/>
+                    </owl:Restriction>
+                </owl:intersectionOf>
+            </owl:Class>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">PR</obo:STATO_0000404>
+        <resource:hasSynonym xml:lang="en">positive rate</resource:hasSynonym>
+        <rdfs:label xml:lang="en">positive prediction rate</rdfs:label>
+        <skos:definition xml:lang="en">The fraction of a group which recieves a positive outcome (either true positive or false positive).</skos:definition>
+        <probabilistic_definition xml:lang="en">P(Ŷ = 1)</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#post-processing_bias_mitigation_method -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#post-processing_bias_mitigation_method">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias_mitigation_method"/>
+        <owl:disjointWith rdf:resource="https://purl.org/heals/fmo#pre-processing_bias_mitigation_method"/>
+        <rdfs:label xml:lang="en">post-processing bias mitigation method</rdfs:label>
+        <skos:definition xml:lang="en">A ppost-processing bias mitigation method operates after the process of creating the ML model through some other ML algorithm.</skos:definition>
+        <skos:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#pre-processing_bias_mitigation_method -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#pre-processing_bias_mitigation_method">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias_mitigation_method"/>
+        <rdfs:label xml:lang="en">pre-processing bias mitigation method</rdfs:label>
+        <skos:definition xml:lang="en">A pre-processing bias mitigation method operates prior to the use of some main ML algorithm to create the ML model.</skos:definition>
+        <skos:definition rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#prediction_negative -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#prediction_negative">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#negative_prediction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">PN</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">prediction negative</rdfs:label>
+        <skos:definition xml:lang="en">The number of negative predictions reported by a model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#prediction_positive -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#prediction_positive">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#positive_prediction"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">PP</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">prediction positive</rdfs:label>
+        <skos:definition xml:lang="en">The number of positive predictions reported by a model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#predictive_equality -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#predictive_equality">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#separation_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/STATO_0000053"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">equal mis-opportunity</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">false positive error rate balance</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">predictive equality</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has equal false positive rate;  in other words, the positive outcome is (incorrectly) given equally across members of all protected classes which should not qualify for it.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#predictive_parity -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#predictive_parity">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sufficiency_class_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/STATO_0000416"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">equal positive predictive value</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">outcome test</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">predictive parity</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has equal positive predicted value; in other words, predictions for all predicted classes are made with equal precision.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#protected_class -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#protected_class">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#dataset_cohort"/>
+        <dc:source>https://www.archives.gov/eeo/terminology.html</dc:source>
+        <rdfs:label xml:lang="en">protected class</rdfs:label>
+        <skos:definition xml:lang="en">A group protected from employment discrimination by law.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#ratio-based_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#ratio-based_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://purl.obolibrary.org/obo/STATO_0000184"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">ratio-based fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by the relative ratios of measurements of cohorts within a dataset.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#regression_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#regression_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <rdfs:label xml:lang="en">regression fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A notion of fairness, as designed to evaluate a clustering relative to its dataset.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#relaxed_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#relaxed_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">relaxed fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion which is a relaxed version of another fairness notion.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#representation_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#representation_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3457607</dc:source>
+        <rdfs:label xml:lang="en">representation bias</rdfs:label>
+        <skos:definition xml:lang="en">Representation bias arises from the use of a skewed or otherwise non-representative sample from a population during data collection process.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#sampling_bias -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#sampling_bias">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#bias"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3457607</dc:source>
+        <rdfs:label xml:lang="en">sampling bias</rdfs:label>
+        <skos:definition xml:lang="en">Similarly to representation bias, sampling bias arises due to non-random
+sampling of subgroups</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#separation -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#separation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#separation_class_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">separation</rdfs:label>
+        <skos:definition xml:lang="en">The fairness property satisfied when the predicted outcome variable is independent of protected characteristics, conditionally on the actual outcome variable.</skos:definition>
+        <probabilistic_definition xml:lang="en">Ŷ ⊥ C | Y</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#separation_class_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#separation_class_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">Separation-class notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of Separation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#social_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#social_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#algorithm-specific_clustering_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000011"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:intersectionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="https://purl.org/heals/fmo#machine_learning_model"/>
+                            <owl:Restriction>
+                                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#center-based_clustering"/>
+                            </owl:Restriction>
+                        </owl:intersectionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://drive.google.com/file/d/18NMu0Ic_OPdLFH58bmgx64KXhOni0AV-/view</dc:source>
+        <rdfs:label xml:lang="en">social fairness</rdfs:label>
+        <skos:definition xml:lang="en">A clustering is socially fair if it has minimum average center-based clustering objectives for each protected group. In other words, nearby clusters are similar and a representative exists for each cluster.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#social_fairness_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#social_fairness_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sum-for-all-cohorts_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#social_fairness"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_objective_cost"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1802.05733</dc:source>
+        <rdfs:label xml:lang="en">social fairness cost</rdfs:label>
+        <skos:definition xml:lang="en">The social fairness cost of a clustering as a whole is defined as the maximum average clustering objective value across the set of all protected groups. In other words, the social cost of a clustering is the error for the protected group with the highest error value.</skos:definition>
+        <mathematical_definition xml:lang="en">\max{objective(U, X_a)/{\lvert X_a \rvert}} \forall a \in A</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#statistical_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#statistical_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">statistical fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that can be computed from the statistical metrics used to evaluate an ML model, such as the confusion matrix of results generated by a typical model evaluation of a classification model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#statistical_fairness_test -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#statistical_fairness_test">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">statistical fairness test</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by a statistical fairness test of the likelihood of some cohorts within a dataset exhibiting the fairness notion according to their measurements.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#statistical_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#statistical_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#evaluation_metric"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">statistical metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement used to evaluate the effectiveness of a machine-learning model or dataset, based only on statistical methods.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#statistical_parity -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#statistical_parity">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#historical_bias"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">acceptance rate</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">benchmarking</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">demographic parity</obo:IAO_0000118>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">statistical parity</rdfs:label>
+        <skos:definition xml:lang="en">Each protected class has the same positive rate: in other words, the positive outcome is given equally to all protected classes. (Note: Occasionally, &quot;group fairness&quot; is used to refer to statistical parity specifically, instead of the broader meaning as defined in this ontology.)</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#statistical_parity_for_regression -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#statistical_parity_for_regression">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#independence_class_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/abs/1905.12843</dc:source>
+        <rdfs:label xml:lang="en">statistical parity for regression</rdfs:label>
+        <skos:definition xml:lang="en">Distribution of predicted output is independent of the sensitive attribute.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#sufficiency -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#sufficiency">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#sufficiency_class_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">sufficiency</rdfs:label>
+        <skos:definition xml:lang="en">The fairness property satisfied when a target variable is independent of protected characteristics, conditionally on the predicted outcome variable.</skos:definition>
+        <probabilistic_definition xml:lang="en">Y ⊥ C | Ŷ</probabilistic_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#sufficiency_class_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#sufficiency_class_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">Sufficiency-class notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of Sufficiency.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#sum-for-all-cohorts_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#sum-for-all-cohorts_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001114"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">max-over-cohorts fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cohort. It is calculated by taking the maximum fairness value across all clusters in the clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#sum-over-clusters_clustering_fairness_metric -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#sum-over-clusters_clustering_fairness_metric">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#clustering_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001112"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:label xml:lang="en">sum-over-clusters clustering fairness metric</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of fairness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the sum of the fairness values across all clusters in the clustering.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#test-fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#test-fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#predictive_parity"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#classification_probability_score"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:IAO_0000118 xml:lang="en">calibration</obo:IAO_0000118>
+        <obo:IAO_0000118 xml:lang="en">matching conditional frequencies</obo:IAO_0000118>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</dc:source>
+        <rdfs:label xml:lang="en">test-fairness</rdfs:label>
+        <skos:definition xml:lang="en">For any predicted probability score S, each protected group is predicted with equal precision; in other words, the fraction of correct positive predictions is the same for all groups for any value of S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#testing_dataset -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#testing_dataset">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdfs:label xml:lang="en">testing dataset</rdfs:label>
+        <skos:definition xml:lang="en">A dataset used to evaluate the outcomes of a machine learning model.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#thresholded_fairness_notion -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#thresholded_fairness_notion">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#relaxed_fairness_notion"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">thresholded fairness notion</rdfs:label>
+        <skos:definition xml:lang="en">A fairness notion which is satisfied if another fairness notion is within a certain threshold.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#total_fairness -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#total_fairness">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#conditional_use_accurace_equality"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#equalized_odds"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom>
+                    <owl:Class>
+                        <owl:complementOf rdf:resource="https://purl.org/heals/fmo#representation_bias"/>
+                    </owl:Class>
+                </owl:someValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <rdfs:label xml:lang="en">total fairness</rdfs:label>
+        <skos:definition xml:lang="en">The highly stringent fairness notion that is satisfied when independence, separation, and sufficiency are satisfied; in other words, the proportions of false positives, true positives, false negatives, and true negatives are the same among all protected classes.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#total_outcome_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#total_outcome_count">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <obo:STATO_0000404 xml:lang="en">n</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">total outcome count</rdfs:label>
+        <skos:definition xml:lang="en">The total number of observed outcomes (whether TN,TP,FN,FP).</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#training_dataset -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#training_dataset">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdfs:label xml:lang="en">training dataset</rdfs:label>
+        <skos:definition xml:lang="en">A dataset used to train a model through the process of machine learning.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#treatment_equality -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#treatment_equality">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#statistical_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#error_type_ratio"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.23919/FAIRWARE.2018.8452913</dc:source>
+        <rdfs:label xml:lang="en">treatment equality</rdfs:label>
+        <skos:definition xml:lang="en">Each group has an equal ratio of false negatives and false positives.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#true_negative_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#true_negative_count">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_negative_outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">TN</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">true negative count</rdfs:label>
+        <skos:definition xml:lang="en">The number of true negatives (correct rejections) observed in an evaluation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#true_negative_outcome -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#true_negative_outcome">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#negative_prediction"/>
+        <obo:IAO_0000118 xml:lang="en">correct rejection</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">true negative outcome</rdfs:label>
+        <skos:definition xml:lang="en">An input correctly classified to be false, in relation to some testing dataset which classifies it as false.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#true_positive_count -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#true_positive_count">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#outcome_count"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_positive_outcome"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <obo:STATO_0000404 xml:lang="en">TP</obo:STATO_0000404>
+        <rdfs:label xml:lang="en">true positive count</rdfs:label>
+        <skos:definition xml:lang="en">The number of true positives (hits) observed in an evaluation.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#true_positive_outcome -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#true_positive_outcome">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#positive_prediction"/>
+        <obo:IAO_0000118 xml:lang="en">hit</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">true positive outcome</rdfs:label>
+        <skos:definition xml:lang="en">An input correctly classified to be true, in relation to some testing dataset which classifies it as true.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#utilitarian_cluster_proportional_violation -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#utilitarian_cluster_proportional_violation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#cluster-specific_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://arxiv.org/pdf/1910.05113.pdf</dc:source>
+        <resource:hasSynonym xml:lang="en">bounded cluster proportion violation</resource:hasSynonym>
+        <rdfs:label xml:lang="en">utilitarian cluster proportion violation</rdfs:label>
+        <skos:definition xml:lang="en">A measurement of a cluster&apos;s violation of the proportionality constraint, calculated as the maximum absolute value of the ratio in each cluster between the actual proportion of a cohort to the expected proportion of the cohort (based on known proportions in the data).</skos:definition>
+        <mathematical_definition xml:lang="en">\max{\bounds_{LB.UB}{\frac{\frac{Y \in a_i}{Y \notin a_i}{\frac{X \in a_i}{X \notin a_i}}} - 1} \forall a_i \in A</mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#utilitarian_fair_clustering_under_a_bounded_cost -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#utilitarian_fair_clustering_under_a_bounded_cost">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#fair_clustering_under_a_bounded_cost"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#group_utilitarian_clustering"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2106.07239</dc:source>
+        <resource:hasSynonym xml:lang="en">utilitarian FCBC</resource:hasSynonym>
+        <rdfs:label xml:lang="en">utlitarian fair clustering under a bounded cost</rdfs:label>
+        <skos:definition xml:lang="en">The fundamental idea of fair clustering under a bounded cost (FCBC) is to minimize a measure of unfairness subject to an upper bound on the clustering cost.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#validation_dataset -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#validation_dataset">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdfs:label xml:lang="en">validation dataset</rdfs:label>
+        <skos:definition xml:lang="en">A dataset used to validate the predictive capability of a machine learning model during its development.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/heals/fmo#well-calibration -->
+
+    <owl:Class rdf:about="https://purl.org/heals/fmo#well-calibration">
+        <rdfs:subClassOf rdf:resource="https://purl.org/heals/fmo#test-fairness"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.4230/LIPIcs.ITCS.2017.43</dc:source>
+        <rdfs:label xml:lang="en">well calibration</rdfs:label>
+        <skos:definition xml:lang="en">For any predicted probability score S, subjects in each protected group are correctly predicted to be in the positive class with a probability equal to S.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- https://purl.org/heals/fmo#Algorithm-Agnostic -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Algorithm-Agnostic">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#Algorithm_Specificity"/>
+        <rdfs:label xml:lang="en">Algorithm-Agnostic</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#algorithm-agnostic_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Algorithm-Specific -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Algorithm-Specific">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#Algorithm_Specificity"/>
+        <rdfs:label xml:lang="en">Algorithm-Specific</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#algorithm-specific_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Algorithm_Specificity -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Algorithm_Specificity">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#fairness_notion_categorization"/>
+        <rdfs:label xml:lang="en">Algorithm Specificity</rdfs:label>
+        <display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</display_order>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Classification -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Classification">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#ML_Problem_Categorization"/>
+        <rdfs:label xml:lang="en">Classification</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#classification_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Clustering -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Clustering">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#ML_Problem_Categorization"/>
+        <rdfs:label xml:lang="en">Clustering</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#clustering_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Fair-ML_Paradigm -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Fair-ML_Paradigm">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#fairness_notion_categorization"/>
+        <rdfs:label xml:lang="en">Fair-ML Paradigm</rdfs:label>
+        <display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</display_order>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Group_Fairness -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Group_Fairness">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#Fair-ML_Paradigm"/>
+        <rdfs:label xml:lang="en">Group Fairness</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#group-level_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Individual-level_fairness_notion -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Individual-level_fairness_notion">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#Fair-ML_Paradigm"/>
+        <rdfs:label xml:lang="en">Individual Fairness</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#individual-level_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#ML_Problem_Categorization -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#ML_Problem_Categorization">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#fairness_notion_categorization"/>
+        <rdfs:label xml:lang="en">Machine Learning Problem</rdfs:label>
+        <display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</display_order>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#Regression -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#Regression">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/heals/fmo#ML_Problem_Categorization"/>
+        <rdfs:label xml:lang="en">Regression</rdfs:label>
+        <mapsTo rdf:resource="https://purl.org/heals/fmo#regression_fairness_notion"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#machine_learning_dataset"/>
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#testing_dataset"/>
+        <resource:SIO_000053 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+        <resource:SIO_000053 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_female -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#protected_class"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_female_FN -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female_FN">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#false_negative_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">579</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_female_FP -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female_FP">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#false_positive_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">664</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_female_TN -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female_TN">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#true_negative_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5828</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_female_TP -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female_TP">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#true_positive_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">326</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_male -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#protected_class"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_male_FN -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male_FN">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#false_negative_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">247</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_male_FP -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male_FP">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#false_positive_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">500</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_male_TN -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male_TN">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#true_negative_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">6228</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_cohort_male_TP -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male_TP">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#true_positive_count"/>
+        <resource:SIO_000668 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+        <owl:topDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">628</owl:topDataProperty>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_lr_random1_healthgan_data1 -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_lr_random1_healthgan_data1">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#machine_learning_model"/>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000365"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_negative_outcome"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000365"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#false_positive_outcome"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000365"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_negative_outcome"/>
+            </owl:Restriction>
+        </rdf:type>
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000365"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/heals/fmo#true_positive_outcome"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://purl.org/heals/fmo#mimic3_race_lr_random1_healthgan_data1_confusion_matrix -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/heals/fmo#mimic3_race_lr_random1_healthgan_data1_confusion_matrix">
+        <rdf:type rdf:resource="https://purl.org/heals/fmo#machine_learning_model_evaluation"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female_FN"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female_FP"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female_TN"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_female_TP"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male_FN"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male_FP"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male_TN"/>
+        <resource:SIO_000229 rdf:resource="https://purl.org/heals/fmo#mimic3_race_cohort_male_TP"/>
+        <resource:SIO_000230 rdf:resource="https://purl.org/heals/fmo#mimic3_race"/>
+        <resource:SIO_000230 rdf:resource="https://purl.org/heals/fmo#mimic3_race_lr_random1_healthgan_data1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.a2rd.net.br/mlo#Hierarchical_Clustering">
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
+        <skos:definition xml:lang="en">Hierarchical clustering approaches aim to partition the dataset into hierarchies, with the clustering output represented as a binary tree. The root node represents the entire dataset while the leaf nodes comprise of the singular samples of the dataset. The remaining nodes of the tree represent clusters, and in this way, a hierarchy of clusters is obtained.</skos:definition>
+        <rdfs:label xml:lang="en">Hierarchical Clustering</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000053"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000134"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000220"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000233"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000412"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000415"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000416"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_discovery_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_negative_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_omission_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_positive_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#negative_prediction_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#negative_predictive_value"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#positive_prediction_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_negative_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_positive_count"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000053"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000134"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000220"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000233"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000412"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000415"/>
+            <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000416"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_negative_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_positive_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#negative_prediction_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#positive_prediction_rate"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_negative_count"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_positive_count"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.a2rd.net.br/mlo#k-Means"/>
+            <rdf:Description rdf:about="http://www.a2rd.net.br/mlo#k-Medians"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#k-center"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#k-medoids"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#Jung_individual_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#aggregate_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#alpha-pairwise_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#beta-community_preserving_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#bounded__representation_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#cluster_balance_equality"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#cluster_proportion_preservation"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#distributional_individual_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#diversity-aware_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#essential_cluster_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#fair_summary_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#max_fairness_cost"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#per-point_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#separation_class_notion"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#social_fairness"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#treatment_equality"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+        <owl:members rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_negative_outcome"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#false_positive_outcome"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_negative_outcome"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#true_positive_outcome"/>
+        </owl:members>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_female"/>
+            <rdf:Description rdf:about="https://purl.org/heals/fmo#mimic3_race_cohort_male"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
