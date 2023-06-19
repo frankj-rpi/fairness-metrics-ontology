@@ -6,7 +6,7 @@ The initial version of FMO, dubbed the Fairness Metrics Ontology for Classificat
 
 ## FMO Structure
 
-For more information, see [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137), our  AIES '22 conference paper, or [its accompanying poster](https://homepages.rpi.edu/~frankj6/aies22.html). For a short paper to give a quick introduction, see [our US2TS abstract](https://homepages.rpi.edu/~frankj6/US2TS-2022-Towards_an_Ontology_for_Fairness_Metrics.pdf).
+For a short paper to give a quick introduction, see [our US2TS abstract](https://homepages.rpi.edu/~frankj6/US2TS-2022-Towards_an_Ontology_for_Fairness_Metrics.pdf). For more in-depth information, see [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137), our  AIES '22 conference paper, or [its accompanying poster](https://homepages.rpi.edu/~frankj6/aies22.html). Note that these papers describe FMO-C; papers for FMO-R have not yet been published.
 
 The following is a high-level overview of the fairness metrics ontology:
 
@@ -22,7 +22,7 @@ The following persistent URLs point to the various versions of FMO:
 
 Latest Version (https://purl.org/twc/fmo): This PURL will always point to the most up-to-date version of FMO. The (https://purl.org/heals/fmo) PURL points to the same location.
 
-2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the canonical PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in the paper FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning (*publication pending*). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
+2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the canonical PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in the paper FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning (*pending*). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
 
 2023-05-09—FMO-R (https://purl.org/heals/fmo/1.0.0): This is an earlier PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, and points to an earlier release of FMO-R. It includes regression, clustering, and related ML concepts, but has been deprecated in favor of the 2023-06-17 release.
 
