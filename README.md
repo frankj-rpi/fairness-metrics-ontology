@@ -4,6 +4,10 @@ The Fairness Metrics Ontology (FMO) is an OWL2 ontology for the standardized rep
 
 The initial version of FMO, dubbed the Fairness Metrics Ontology for Classification (FMO-C), was released on August 2nd 2022. An updated version, the Fairness Metrics Ontology for Regression and Machine Learning (FMO-R), was released on May 9, 2023, and includes new concepts for the representation of fairness in regression as well as updates to the original FMO-C architecture. For more information, see [Version History](https://github.com/frankj-rpi/fairness-metrics-ontology/blob/main/README.md#version-history).
 
+## FMO Explorer
+
+With our explorer, you can filter out different notions and metrics according to different requirements, and view the groups of notions and metrics that match these requirements. To view the Fairness Metrics Explorer, visit <https://inciteprojects.idea.rpi.edu/fairness/app/fairness/>. 
+
 ## FMO Structure
 
 For a short paper to give a quick introduction, see [our US2TS abstract](https://homepages.rpi.edu/~frankj6/US2TS-2022-Towards_an_Ontology_for_Fairness_Metrics.pdf). For more in-depth information, see [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137), our  AIES '22 conference paper, or [its accompanying poster](https://homepages.rpi.edu/~frankj6/aies22.html). Note that these papers describe FMO-C; papers for FMO-R have not yet been published.
