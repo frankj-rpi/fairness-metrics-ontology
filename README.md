@@ -10,7 +10,7 @@ With our explorer, you can filter out different notions and metrics according to
 
 ## FMO Structure
 
-For a short paper to give a quick introduction, see [our US2TS abstract](https://homepages.rpi.edu/~frankj6/US2TS-2022-Towards_an_Ontology_for_Fairness_Metrics.pdf). For more in-depth information, see [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137), our  AIES '22 conference paper, or [its accompanying poster](https://homepages.rpi.edu/~frankj6/aies22.html). Note that these papers describe FMO-C; papers for FMO-R have not yet been published.
+For a short paper to give a quick introduction, see [our US2TS abstract](https://homepages.rpi.edu/~frankj6/US2TS-2022-Towards_an_Ontology_for_Fairness_Metrics.pdf). For more in-depth information on the ontology as a whole, see [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137), our  AIES '22 conference paper, or [its accompanying poster](https://homepages.rpi.edu/~frankj6/aies22.html). For information on FMO-R or the explorer specifically, see [An Ontology for Reasoning about Regression in Machine Learning](https://link.springer.com/chapter/10.1007/978-3-031-47745-4_18).
 
 The following is a high-level overview of the fairness metrics ontology:
 
