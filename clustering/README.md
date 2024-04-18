@@ -10,9 +10,9 @@ For more information about the Fairness Metrics Ontology project as a whole, see
 
 The following is a high-level overview of the fairness metrics ontology for clustering:
 
-![High-level concept map](diagrams/HL-concept-map.png "High-Level Concept Map")
+![High-level concept map](../diagrams/HL-concept-map.png "High-Level Concept Map")
 
 The full ontology is shown in diagram form below:
 
-![High-level concept map](diagrams/FairnessOntologyFull.png "Full Concept Map")
+![High-level concept map](../diagrams/FairnessOntologyFull.png "Full Concept Map")
 
