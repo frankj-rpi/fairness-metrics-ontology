@@ -23,11 +23,11 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:resource="http://semanticscience.org/resource/">
     <owl:Ontology rdf:about="https://purl.org/twc/fmo">
-        <owl:versionIRI rdf:resource="https://purl.org/twc/fmo/1.0.0"/>
-        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/stato.owl"/>
+        <owl:versionIRI rdf:resource="https://purl.org/twc/fmo/1.0.1"/>
         <owl:imports rdf:resource="http://semanticscience.org/ontology/sio/v1.54/sio-release.owl"/>
         <owl:imports rdf:resource="http://www.a2rd.net.br/mlo/10.0"/>
         <owl:imports rdf:resource="http://www.w3.org/TR/skos-reference/skos-owl1-dl.rdf"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/stato.owl"/>
         <obo:IAO_0000116 xml:lang="en">This version of the ontology has been referred to as &quot;FMO-R&quot; (fairness metrics ontology for classification and regression) and includes fairness concepts for regression, updates to the original ontology&apos;s fairness concepts for classification, and some additional work on fairness concepts for clustering.</obo:IAO_0000116>
         <terms:abstract xml:lang="en">To aid in the development of fair ML models, and provide guidance to researchers on how best to utilize fairness notions and metrics, we present the Fairness Metrics Ontology (FMO). FMO is a comprehensive knowledge resource which defines each fairness notion and metric, describes their use cases, and details the relationships between them. FMO also includes related concepts for describing ML models, such as the statistical metrics used to evaluate them, and defines how each fairness notion can be derived from these metrics. Although FMO can be used as a standalone resource by itself, it is also designed to be used to model fairness information for specific ML models in a Resource Description Framework (RDF) knowledge graph, and can be combined with a reasoner to infer fairness notions a model satisfies according to its evaluation metrics.</terms:abstract>
         <terms:contributor>Deborah L. McGuinness</terms:contributor>
@@ -37,7 +37,7 @@
         <terms:contributor>Mohamed Ghalwash</terms:contributor>
         <terms:creator>Jade S. Franklin</terms:creator>
         <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-05-09</terms:issued>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-06-17</terms:modified>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-12-16</terms:modified>
         <rdfs:label xml:lang="en">Fairness Metrics Ontology</rdfs:label>
     </owl:Ontology>
     
@@ -102,6 +102,14 @@
     
 
 
+    <!-- https://purl.org/twc/fmo#category_header -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/twc/fmo#category_header">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
     <!-- https://purl.org/twc/fmo#display_order -->
 
     <owl:AnnotationProperty rdf:about="https://purl.org/twc/fmo#display_order">
@@ -121,8 +129,8 @@
     <!-- https://purl.org/twc/fmo#mathematical_definition -->
 
     <owl:AnnotationProperty rdf:about="https://purl.org/twc/fmo#mathematical_definition">
-        <rdfs:label xml:lang="en">A definition for a mathematical concept, formally defined in LaTeX.</rdfs:label>
         <rdfs:label xml:lang="en">mathematical definition</rdfs:label>
+        <skos:definition xml:lang="en">A definition for a mathematical concept, formally defined in LaTeX.</skos:definition>
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#definition"/>
     </owl:AnnotationProperty>
     
@@ -149,6 +157,14 @@
     <!-- https://purl.org/twc/fmo#queryNotion -->
 
     <owl:AnnotationProperty rdf:about="https://purl.org/twc/fmo#queryNotion">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://purl.org/twc/fmo#tag -->
+
+    <owl:AnnotationProperty rdf:about="https://purl.org/twc/fmo#tag">
         <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#note"/>
     </owl:AnnotationProperty>
     
@@ -697,20 +713,21 @@ data point.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#KS_distance"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#statistical_parity_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#statistical_parity_for_regression"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#KS_distance"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2006.07286</dc:source>
         <resource:hasSynonym xml:lang="en">Kolmogorov-Smirnov statistical parity</resource:hasSynonym>
         <rdfs:label xml:lang="en">KS statistical parity</rdfs:label>
         <skos:definition xml:lang="en">The maximum difference between the cumulative distribution function of the group predictions and the overall predictions.</skos:definition>
+        <fmo:mathematical_definition>This metric for statistical parity is defined as \(h(cdf(f(X);s), cdf(f(X)))\) for Kolmogorov-Smirnov test \(h\). The corresponding fairness notion is Statistical Parity.</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -780,13 +797,25 @@ clusters.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.2102.12013</dc:source>
         <rdfs:label xml:lang="en">accuracy parity</rdfs:label>
         <skos:definition xml:lang="en">The absolute difference in expected loss for each group is bounded above to satisfy accuracy parity.</skos:definition>
+        <fmo:mathematical_definition>Accuracy Parity requires that the absolute difference in expected loss for each group is bounded above to satisfy accuracy parity. We define the bound as \(8M^2d_{tv}(Y_0,Y_1)+3M\min(E[ E[f(X) | S=0] - E[f(X) | S=1] | S=0], E[ E[f(X) | S=0] - E[f(X) | S=1] | S=1])\) where \(M\) is the bound on \(Y\) and the uniform norm of \(f\) and \(d_{tv}\) is the maximum absolute difference of the probability distributions of \(Y\) for \(S=0\) and \(S=1\).</fmo:mathematical_definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/twc/fmo#adversarial_mitigation -->
+
+    <owl:Class rdf:about="https://purl.org/twc/fmo#adversarial_mitigation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">doi.org/10.1145/3278721.3278779</dc:source>
+        <rdfs:label xml:lang="en">adversarial mitigation</rdfs:label>
+        <skos:definition xml:lang="en">Two models: the predictor which learns to predict Y from X and the adversary which predicts S from f(X), the goal is for the adversary to perform poorly</skos:definition>
     </owl:Class>
     
 
@@ -948,20 +977,21 @@ distance between the points.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#AUC"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#AUC"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ICDM.2013.114</dc:source>
         <resource:hasSynonym xml:lang="en">area under the ROC curve fairness metric</resource:hasSynonym>
-        <rdfs:label xml:lang="en">AUC fairness metric</rdfs:label>
+        <rdfs:label xml:lang="en">AUC parity</rdfs:label>
         <skos:definition xml:lang="en">The predictions of two groups is not dependent on the sensitive attribute, i.e. there is zero attribute effect.</skos:definition>
+        <fmo:mathematical_definition>The AUC metric is the area under the ROC curve of the continuous predicted output partitioned by sensitive attribute: $$\sum_{(x,y)\in G_i,(x&apos;,y&apos;)\in G_j}\frac{I(y&gt;y&apos;)}{|G_i|\times|G_j|}.$$</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -1117,13 +1147,14 @@ classes are within a defined bound and at most 0.5(preventing dominance).</skos:
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1905.12843</dc:source>
         <rdfs:label xml:lang="en">bounded group loss</rdfs:label>
         <skos:definition xml:lang="en">All group losses fall within the same threshold.</skos:definition>
+        <fmo:mathematical_definition>A predictor \(f\) satisfies bounded group loss at level \(\zeta\) under a distribution over \((X,S,Y)\) if \(E[l(Y,f(X))|S=s]\leq\zeta\) for all \(s\in S\)” \cite{Agarwaletal_2019}. This means that the model will perform equally well for the protected and unprotected groups. {\bf KPB Maybe here we can the idea of thresholded metrics from the original ML ontology paper}. There is a generic idea of converting a notion to a threshold notion in that ML ontology and probably we should describe above in our notation.</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -1237,6 +1268,8 @@ classes are within a defined bound and at most 0.5(preventing dominance).</skos:
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">per-cluster fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A fairness metric computed for one specific cluster in a clustering.</skos:definition>
+        <fmo:tag>exclude</fmo:tag>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -1277,7 +1310,7 @@ classes are within a defined bound and at most 0.5(preventing dominance).</skos:
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#cluster-specific_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000668"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#cluster_entropy_fairness"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1456,6 +1489,8 @@ classes are within a defined bound and at most 0.5(preventing dominance).</skos:
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
         <rdfs:label xml:lang="en">clustering fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A metric to measure the fairness of a set of clusters, with regards to some specific cohort(s).</skos:definition>
+        <fmo:tag>exclude</fmo:tag>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -1478,6 +1513,7 @@ classes are within a defined bound and at most 0.5(preventing dominance).</skos:
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
         <rdfs:label xml:lang="en">clustering fairness notion</rdfs:label>
         <skos:definition xml:lang="en">A definition of fairness used to define a clustering or clustering model as fair.</skos:definition>
+        <fmo:tag>exclude</fmo:tag>
     </owl:Class>
     
 
@@ -1569,7 +1605,7 @@ negative class is the same among all protected classes.</skos:definition>
     <!-- https://purl.org/twc/fmo#constrainted_optimization_mitigation -->
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#constrainted_optimization_mitigation">
-        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#pre-processing_bias_mitigation_method"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
@@ -1579,6 +1615,7 @@ negative class is the same among all protected classes.</skos:definition>
         <dc:source rdf:resource="https://doi.org/10.1609/aaai.v34i04.5970"/>
         <rdfs:label xml:lang="en">constrained optimization mitigation</rdfs:label>
         <skos:definition xml:lang="en">Difference in pairwise predictive accuracy between any two groups must fall within some bound when optimizing</skos:definition>
+        <fmo:mathematical_definition xml:lang="en">max_{f} AUC(f) s.t. A_{Gi&gt;Gj}(f) - A_{Gk&gt;Gl}(f) &lt;= eps forall i != j, k!= l</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -1603,19 +1640,33 @@ negative class is the same among all protected classes.</skos:definition>
     
 
 
+    <!-- https://purl.org/twc/fmo#correlation_remover -->
+
+    <owl:Class rdf:about="https://purl.org/twc/fmo#correlation_remover">
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://fairlearn.org/main/user_guide/mitigation/preprocessing.html#correlation-remover</dc:source>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://www.microsoft.com/en-us/research/uploads/prod/2020/05/Fairlearn_WhitePaper-2020-09-22.pdf</dc:source>
+        <rdfs:label xml:lang="en">correlation remover</rdfs:label>
+        <skos:definition xml:lang="en">Removes correlation between sensitive and non-sensitive features</skos:definition>
+        <fmo:mathematical_definition xml:lang="en">min sum(||zi - xi||^2) subject to avg(zi(si-s*)^T)=0 for nonsensitive attributes Z and sensitive attributes S and original features X with s* being avg s?, new features X_tfm = aX_filt+(1-a)X_orig</fmo:mathematical_definition>
+    </owl:Class>
+    
+
+
     <!-- https://purl.org/twc/fmo#cross-pair_group_fairness -->
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#cross-pair_group_fairness">
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#statistical_parity_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1706.02409</dc:source>
         <rdfs:label xml:lang="en">cross-pair group fairness</rdfs:label>
         <skos:definition xml:lang="en">The squared average of a weighted difference between all samples in two groups.</skos:definition>
+        <fmo:mathematical_definition>The Cross-Pair Group Fairness is a metric of Statistical Parity which takes the squared average of a weighted difference between all samples in two groups of the protected class. We may write this in mathematical notation as $$\Big(\frac{1}{|G_i|\times|G_j|}\sum_{(x,y)\in G_i,(x&apos;,y&apos;)\in G_j}d(y,y&apos;)\cdot(f(x)-f(x&apos;))\Big)^2$$ where \(d\) is a distance function which decreases as \(|y-y&apos;|\) increases.</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -1678,7 +1729,7 @@ negative class is the same among all protected classes.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#fairness_metric"/>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <rdfs:label xml:lang="en">difference-based fairness metric</rdfs:label>
-        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by the relative differences of measurements of cohorts within a dataset.</skos:definition>
+        <skos:definition xml:lang="en">A measurement of any fairness notion, calculated by the relative differences of measurements of cohorts within a dataset.</skos:definition>
     </owl:Class>
     
 
@@ -1800,9 +1851,16 @@ negative class is the same among all protected classes.</skos:definition>
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#equal_accuracy_for_regression">
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#loss-based_fairness"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">equal accuracy for regression</rdfs:label>
         <skos:definition xml:lang="en">Error is independent of sensitive attribute(s).</skos:definition>
+        <fmo:mathematical_definition>A predictor \(f\) satisfies Equal Accuracy if \(P[f(X) = Y | S = s_i] = P[f(X) = Y | S = s_j]\) for any two groups \(s_i,s_j\) of the protected class. That is, the model’s accuracy in correctly estimating \(Y\) is independent of the protected attribute. (Chi et al, 2021)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">E[ l(f(X),Y) | S = s] = E[ l(f(X),Y) ] for any s in S</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -1878,7 +1936,7 @@ negative class is the same among all protected classes.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -1974,6 +2032,17 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
     
 
 
+    <!-- https://purl.org/twc/fmo#exponentiation_gradient -->
+
+    <owl:Class rdf:about="https://purl.org/twc/fmo#exponentiation_gradient">
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1803.02453</dc:source>
+        <rdfs:label xml:lang="en">exponentiation gradient</rdfs:label>
+        <skos:definition xml:lang="en">Exponentiates the gradient of the loss and normalizes it, uses Bounded Group Loss as constraint during fit.</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://purl.org/twc/fmo#fair_clustering_under_a_bounded_cost -->
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#fair_clustering_under_a_bounded_cost">
@@ -2044,13 +2113,14 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#individual_fairness_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1007/s10664-022-10116-7</dc:source>
         <rdfs:label xml:lang="en">fairness degree</rdfs:label>
         <skos:definition xml:lang="en">The maximum absolute difference between identical individuals of different groups.</skos:definition>
+        <fmo:mathematical_definition>We defined this as the maximum absolute difference in predicted output for individuals with identical features and different values for their protected attribute, or \(|y-y&apos;|\) such that \(x=x&apos;\) and \(s\neq s&apos;\).</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -2080,6 +2150,7 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <rdfs:label xml:lang="en">fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A measurement of some fairness notion in a machine-learning model or dataset, with regards to some specific cohort(s).</skos:definition>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -2134,13 +2205,14 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#individual_fairness_for_regression"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1706.02409</dc:source>
         <rdfs:label xml:lang="en">fairness penalty</rdfs:label>
         <skos:definition xml:lang="en">The average weighted distance in predictions.</skos:definition>
+        <fmo:mathematical_definition>The Fairness Penalty metric is the weighted average of the squared difference in predictions, which is written as $$\frac{1}{|G_i|\times|G_j|}\sum_{(x,y)\in G_i,(x&apos;,y&apos;)\in G_j}d(y,y&apos;)\cdot(f(x)-f(x&apos;))^2$$</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -2300,6 +2372,17 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
     
 
 
+    <!-- https://purl.org/twc/fmo#grid_search -->
+
+    <owl:Class rdf:about="https://purl.org/twc/fmo#grid_search">
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1803.02453</dc:source>
+        <rdfs:label xml:lang="en">grid search</rdfs:label>
+        <skos:definition xml:lang="en">Performs Grid Search for model constrained with Bounded Group Loss</skos:definition>
+    </owl:Class>
+    
+
+
     <!-- https://purl.org/twc/fmo#group-level_fairness_notion -->
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#group-level_fairness_notion">
@@ -2391,13 +2474,14 @@ color h, the number of color h points in C differ by at most 1 from the mass of 
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#mean_difference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ICDM.2013.114</dc:source>
         <rdfs:label xml:lang="en">group mean difference</rdfs:label>
         <skos:definition xml:lang="en">The difference between the mean group prediction and the mean overall prediction</skos:definition>
+        <fmo:mathematical_definition>The metric is defined as the difference in the average predictions for each group, that is, \(E[f(X)|S=s]-E[f(X)]\) for all \(s\) for expected value function \(E\) such as mean or weighted average.</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -2551,6 +2635,7 @@ Note that this is a looser constraint than strict fairness through awareness, wh
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1706.02409</dc:source>
         <rdfs:label xml:lang="en">individual fairness for regression</rdfs:label>
         <skos:definition xml:lang="en">Outcomes are linearly dependent on how similar individuals are, such that identical individuals recieve the same outcome, similar individuals recieve almost the same outcome, and more different individuals recieve more different outcomes. Exclude protected characteristics when determining the similarity between indiivduals.</skos:definition>
+        <fmo:mathematical_definition>Individual Fairness requires that the outcome for all identical individuals of different group for the protected attribute receive equivalent outcomes. This can be written as \(f(x_i)=f(x_j)\) for all \(i,j\) such that \(x_i=x_j\) and \(s_i\neq s_j\). (Berk et al, 2017)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">f(xi) = f(xj) for all i,j such that xi = xj and si != sj</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -2807,6 +2892,7 @@ Note that this is a looser constraint than strict fairness through awareness, wh
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">max-over-clusters clustering fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the minimum cluster-specific fairness value over all clusters in the clustering.</skos:definition>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -2830,7 +2916,7 @@ respectively defined ideal proportion.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#mean_difference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
@@ -2846,9 +2932,16 @@ respectively defined ideal proportion.</skos:definition>
     <owl:Class rdf:about="https://purl.org/twc/fmo#mean_difference">
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#independence"/>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_notion"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:someValuesFrom rdf:resource="http://semanticscience.org/resource/SIO_001021"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ICDM.2013.114</dc:source>
         <rdfs:label xml:lang="en">mean difference</rdfs:label>
         <skos:definition xml:lang="en">The expected value of the predicted output is independent of sensitive attribute(s).</skos:definition>
+        <fmo:mathematical_definition>A predictor \(f\) satisfies mean difference if the expected outcome of an individual is independent of the protected attribute. We write this as \(E[f(X)|S=s]=E[f(X)]\) for all \(s\in S\). (Derived from Calders et al, 2013)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">E[f(X) | S = s] = E[f(X)]</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -2872,6 +2965,7 @@ respectively defined ideal proportion.</skos:definition>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">min-over-clusters clustering fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the minimum cluster-specific fairness value over all clusters in the clustering.</skos:definition>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -2883,6 +2977,16 @@ respectively defined ideal proportion.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1109/ACCESS.2021.3114099</dc:source>
         <rdfs:label xml:lang="en">Mixture Model-Based Clustering</rdfs:label>
         <skos:definition xml:lang="en">Mixture model-based clustering refers to a probabilistic clustering approach where points are assigned to clusters in a soft manner, and do not have hard memberships. Furthermore, data points are assumed to originate (and belong to) some mixture of probability distributions.</skos:definition>
+    </owl:Class>
+    
+
+
+    <!-- https://purl.org/twc/fmo#naive_mitigation -->
+
+    <owl:Class rdf:about="https://purl.org/twc/fmo#naive_mitigation">
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
+        <rdfs:label xml:lang="en">naive mitigation</rdfs:label>
+        <skos:definition xml:lang="en">Resamples data to limit disproportional impact due to sample size</skos:definition>
     </owl:Class>
     
 
@@ -3052,6 +3156,7 @@ are left out of a model.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise equal accuracy</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting an individual has a better outcome than another within the same group is equal for all groups.</skos:definition>
+        <fmo:mathematical_definition>Pairwise Equal Accuracy requires that the probability of correctly predicting an individual of one group has a better outcome than an individual in the same group is the same for all groups of the protected class. This is equivalent to \(P[f(X)&gt;f(X&apos;)|Y&gt;Y&apos;,(X,Y),(X&apos;,Y&apos;)\in G_i]=\kappa\) for some \(\kappa\in[0,1]\) and all \(i\). This is another notion which relies on ranking. (Narasimhan et al, 2020)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">P(f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X&apos;,Y&apos;),(X,Y)∈Di) = κ for some κ∈[0,1] for all i</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -3063,19 +3168,20 @@ are left out of a model.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_equal_accuracy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_equal_accuracy"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise equal accuracy difference</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting the better outcome for all pairs in a group is above the same bound for all groups.</skos:definition>
+        <fmo:mathematical_definition>Pairwise Equal Accuracy Difference requires the probability of correctly predicting the better outcome for all pairs in a group is above the same bound for all groups, or \(P[f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X&apos;,Y&apos;),(X,Y)\in G_i]\geq\kappa\) for some \(\kappa\in[0,1]\) for all \(i\).</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3088,6 +3194,7 @@ are left out of a model.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise equal opportunity</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting an individual has a better outcome between two groups is the same for all pairs of groups of the protected class.</skos:definition>
+        <fmo:mathematical_definition>Pairwise Equal Opportunity requires the probability of correctly predicting that an individual of one group has a better outcome than an individual of another is the same for any two groups of the protected class. Equivalently, we write it as \(P[f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X,Y)\in G_i,(X&apos;,Y&quot;)\in G_j]\) for some \(\kappa\in[0,1]\) and \(i\neq j\). (Narasimhan et al, 2020)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">P(f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X,Y)∈Di, (X&apos;,Y&apos;)∈Dj) = κ for some κ∈[0,1] for all i≠j</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -3099,19 +3206,20 @@ are left out of a model.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_equal_opportunity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_equal_opportunity"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise equal opportunity difference</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting the better outcome for all individuals in one group as compared to another group is above the same bound for all groups</skos:definition>
+        <fmo:mathematical_definition>The Pairwise Equal Opportunity metric is a thresholded version of the Pairwise Equal Opportunity notion which requires The probability of correctly predicting the better outcome for all individuals in one group as compared to another group is above the same bound for all groups. We rewrite this as \(P[f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X,Y)\in G_i, (X&apos;,Y&apos;)\in G_j] \geq\kappa\) for some \(\kappa\in[0,1]\) for all \(i\neq j\). (Narasimhan et al, 2020)</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3152,6 +3260,7 @@ are left out of a model.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise statistical parity</rdfs:label>
         <skos:definition xml:lang="en">The probability of predicting a better outcome for individuals in one group over individuals from another is the same for all pairs of groups.</skos:definition>
+        <fmo:mathematical_definition>The ranking equivalent of Statistical Parity, this notion requires that \(P[f(X) &gt; f(X&apos;) | (X,Y)\in G_i,(X&apos;,Y&apos;)\in G_j]=\kappa\) for some \(\kappa\in[0,1]\) for all \(i\neq j\). We can think of this as requiring the probability of predicting a better outcome for individuals in one group over individuals from another is the same for any two groups of the protected class.</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">P(f(X) &gt; f(X&apos;) | (X,Y)∈Di, (X&apos;,Y&apos;)∈Dj) = κ for some κ∈[0,1] for all i≠j</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -3163,19 +3272,20 @@ are left out of a model.</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_statistical_parity"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
-                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_statistical_parity"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#pairwise_difference"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">pairwise statistical parity difference</rdfs:label>
         <skos:definition xml:lang="en">The difference between the probability of correctly predicting the better outcome of all pairs of individuals between two different groups and the same probability for two groups (can be the same two groups as the first probability) is bounded above by the same threshold for all differences</skos:definition>
+        <fmo:mathematical_definition>Pairwise Statistical Parity Difference relaxes the notion of Pairwise Statistical Parity so we no longer require strict equality for all probabilities and instead require the difference between the probability of correctly predicting the better outcome of all pairs of individuals between two different groups and the same probability for two groups (can be the same two groups as the first probability) is bounded above by the same threshold for all differences. This can be rewritten as \(P[f(X)&gt;f(X&apos;)|(X,Y)\in G_i,(X&apos;,Y&apos;)\in G_j]-P[f(X)&gt;f(X&apos;)|(X,Y)\in G_k,(X&apos;,Y&apos;)\in G_l]\leq\epsilon\) for some \(\epsilon&gt;0\) for \(i\neq j,k\neq l\). This is a Thresholded metric.</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3388,6 +3498,7 @@ are left out of a model.</skos:definition>
         <dc:source rdf:resource="https://doi.org/10.1109/ICDM.2013.114"/>
         <rdfs:label xml:lang="en">propensity mitigation</rdfs:label>
         <skos:definition xml:lang="en">Data is stratified via propensity scoring by sensitive attribute, the model then requires that mean predictions (or residuals) must be the same for all groups in a strata</skos:definition>
+        <fmo:mathematical_definition xml:lang="en">min sum_i in S(w*xi-ti)^2 subject to w*d=0 where d = avg_S+(xi)-avg_S-(xi) or w*d-b=0 where b=avg_S+(ti)-avg_S-(ti) for strata S and sensitive group denoted by +/-</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3417,7 +3528,7 @@ are left out of a model.</skos:definition>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <rdfs:label xml:lang="en">ratio-based fairness metric</rdfs:label>
-        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by the relative ratios of measurements of cohorts within a dataset.</skos:definition>
+        <skos:definition xml:lang="en">A measurement of any fairness notion, calculated by the relative ratios of measurements of cohorts within a dataset.</skos:definition>
     </owl:Class>
     
 
@@ -3427,6 +3538,7 @@ are left out of a model.</skos:definition>
     <owl:Class rdf:about="https://purl.org/twc/fmo#regression_fairness_metric">
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#fairness_metric"/>
         <rdfs:label xml:lang="en">regression fairness metric</rdfs:label>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -3495,9 +3607,16 @@ are left out of a model.</skos:definition>
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#risk_measure">
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
+                <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#equal_accuracy_for_regression"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1214/22-AOS2198</dc:source>
         <rdfs:label xml:lang="en">risk measure</rdfs:label>
         <skos:definition xml:lang="en">The weighted average of the mean squared error of each class.</skos:definition>
+        <fmo:mathematical_definition>The Risk Measure metric is the weighted sum of the expected losses for each group of the protected class. We can write this as \(\sum_{s_i\in S}w_i\cdot E[(f(X)-Y)^2|S=s_i]\) where \(w_i\) is the probability of protected attribute value \(s_i\).</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3505,7 +3624,7 @@ are left out of a model.</skos:definition>
     <!-- https://purl.org/twc/fmo#robust_optimization_mitigation -->
 
     <owl:Class rdf:about="https://purl.org/twc/fmo#robust_optimization_mitigation">
-        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#pre-processing_bias_mitigation_method"/>
+        <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#in-processing_bias_mitigation_method"/>
         <rdfs:subClassOf>
             <owl:Restriction>
                 <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
@@ -3515,6 +3634,7 @@ are left out of a model.</skos:definition>
         <dc:source rdf:resource="https://doi.org/10.1609/aaai.v34i04.5970"/>
         <rdfs:label xml:lang="en">robust optimization mitigation</rdfs:label>
         <skos:definition xml:lang="en">Lower bound of the AUC curve for the model is also a lower bound of the pairwise predictive accuracy for the model</skos:definition>
+        <fmo:mathematical_definition xml:lang="en">max_{zeta,f} zeta s.t. zeta &lt;= AUC(f), zeta &lt;= A_{Gi&gt;Gj}(f) forall i != j</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -3621,7 +3741,7 @@ sampling of subgroups</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#fairness_metric"/>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <rdfs:label xml:lang="en">statistical fairness test</rdfs:label>
-        <skos:definition xml:lang="en">A measurement of some fairness notion, calculated by a statistical fairness test of the likelihood of some cohorts within a dataset exhibiting the fairness notion according to their measurements.</skos:definition>
+        <skos:definition xml:lang="en">A measurement of any fairness notion, calculated by a statistical fairness test of the likelihood of some cohorts within a dataset exhibiting the fairness notion according to their measurements (i,e, comparison of p-values),</skos:definition>
     </owl:Class>
     
 
@@ -3666,6 +3786,7 @@ sampling of subgroups</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1905.12843</dc:source>
         <rdfs:label xml:lang="en">statistical parity for regression</rdfs:label>
         <skos:definition xml:lang="en">The distribution of predicted output is independent of the sensitive attribute.</skos:definition>
+        <fmo:mathematical_definition>A predictor \(f\) satisfies statistical parity under a distribution over \((X,S,Y)\) if \(f(X)\) is independent of the protected attribute \(S\), i.e.  \(f(X) \perp S\). For regression, this can be redefined using the cumulative distribution function of \(f(x)\). Specifically \(P[f(X) \leq z | S = s] = P[f(X) \leq z]\) for all \(s\in S\) and \(z\) in the range of the outcome. The probability of an outcome is not dependent on whether the individual is in the protected group or not. (Agarwal et al., 2019)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">P[f(X) &gt;= z | S = s] = P[f(X) &gt;= z] for all z in range(Y)</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -3710,6 +3831,8 @@ sampling of subgroups</skos:definition>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">max-over-cohorts fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A measurement of fariness for a clustering, with regards to some fairness notion which assigns a fairness value to each cohort. It is calculated by taking the maximum fairness value across all clusters in the clustering.</skos:definition>
+        <fmo:tag>exclude</fmo:tag>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -3732,6 +3855,7 @@ sampling of subgroups</skos:definition>
         </rdfs:subClassOf>
         <rdfs:label xml:lang="en">sum-over-clusters clustering fairness metric</rdfs:label>
         <skos:definition xml:lang="en">A measurement of fairness for a clustering, with regards to some fairness notion which assigns a fairness value to each cluster. It is calculated by taking the sum of the fairness values across all clusters in the clustering.</skos:definition>
+        <fmo:tag>hide</fmo:tag>
     </owl:Class>
     
 
@@ -3744,6 +3868,7 @@ sampling of subgroups</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">symmetric equal accuracy</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting an individual has a better outcome than one from a different group is equal for all groups.</skos:definition>
+        <fmo:mathematical_definition>Symmetric Equal Accuracy requires \(P[f(X)&gt;f(X&apos;)|Y&gt;Y&apos;,(X,Y)\in G_i]+P[f(X)&gt;f(X&apos;)|Y&gt;Y&apos;,(X&apos;,Y&apos;)\in G_i]=\kappa\) for some \(\kappa\in[0,1]\) for all \(i\). We can state this as the probability of correctly predicting that an individual in a group has a better outcome than individuals in all other groups and the probability of correctly predicting that an individual in the same group has a worse outcome than individuals in all other groups is the same for all groups of the protected class.(Narasimhan et al, 2020)</fmo:mathematical_definition>
         <fmo:probabilistic_definition xml:lang="en">P(f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X,Y)∈Di)+P(f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X&apos;,Y&apos;)∈Di) = κ for some κ∈[0,1] for all i</fmo:probabilistic_definition>
     </owl:Class>
     
@@ -3755,13 +3880,14 @@ sampling of subgroups</skos:definition>
         <rdfs:subClassOf rdf:resource="https://purl.org/twc/fmo#regression_fairness_metric"/>
         <rdfs:subClassOf>
             <owl:Restriction>
-                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000244"/>
+                <owl:onProperty rdf:resource="http://semanticscience.org/resource/SIO_000215"/>
                 <owl:someValuesFrom rdf:resource="https://purl.org/twc/fmo#symmetric_equal_accuracy"/>
             </owl:Restriction>
         </rdfs:subClassOf>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <rdfs:label xml:lang="en">symmetric equal accuracy difference</rdfs:label>
         <skos:definition xml:lang="en">The probability of correctly predicting the better outcome for all individuals in a group compared to all individuals not within the group is above the same bound for all groups.</skos:definition>
+        <fmo:mathematical_definition>We require that the probability of correctly predicting the better outcome for all individuals in a group compared to all individuals not within the group is above the same bound for all groups for the metric of Symmetric Equal Accuracy. We can write this as \(P[f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X,Y)\in G_i]+P[f(X) &gt; f(X&apos;) | Y &gt; Y&apos;, (X&apos;,Y&apos;)\in G_i)\geq\kappa\) for some \(\kappa\in[0,1]\) for all \(i\).</fmo:mathematical_definition>
     </owl:Class>
     
 
@@ -4414,6 +4540,7 @@ sampling of subgroups</skos:definition>
         <skos:definition xml:lang="en">A fairness notion may be designed to only work with specific ML algorithms, or it may be broadly applicable to any ML algorithm (that addresses the same format of problem).</skos:definition>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</fmo:display_order>
         <fmo:queryNotion xml:lang="en">?notion_uri rdfs:subClassOf+ ?category_uri.</fmo:queryNotion>
+        <fmo:tag>exclude</fmo:tag>
     </owl:NamedIndividual>
     
 
@@ -4497,6 +4624,7 @@ sampling of subgroups</skos:definition>
         <skos:related rdf:resource="https://purl.org/twc/fmo#independence-class_fairness_notion"/>
         <skos:related rdf:resource="https://purl.org/twc/fmo#individual-level_fairness_notion"/>
         <skos:related rdf:resource="https://purl.org/twc/fmo#loss-class_fairness_notion"/>
+        <skos:related rdf:resource="https://purl.org/twc/fmo#separation-class_fairness_notion"/>
         <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#ML_problem"/>
     </owl:NamedIndividual>
     
@@ -4559,7 +4687,7 @@ sampling of subgroups</skos:definition>
     <!-- https://purl.org/twc/fmo#high-level_fairness_notion -->
 
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#high-level_fairness_notion">
-        <rdf:type rdf:resource="https://purl.org/twc/fmo#fairness_notion_subcategorization"/>
+        <rdf:type rdf:resource="https://purl.org/twc/fmo#fairness_notion_categorization"/>
     </owl:NamedIndividual>
     
 
@@ -4568,6 +4696,7 @@ sampling of subgroups</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#hybrid_fairness_paradigm">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#test_unit"/>
         <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#Fair-ML_Paradigm"/>
     </owl:NamedIndividual>
     
@@ -4596,7 +4725,6 @@ sampling of subgroups</skos:definition>
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#individual_fairness_paradigm">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
         <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#Fair-ML_Paradigm"/>
-        <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#high-level_fairness_notion"/>
     </owl:NamedIndividual>
     
 
@@ -4803,6 +4931,17 @@ sampling of subgroups</skos:definition>
     
 
 
+    <!-- https://purl.org/twc/fmo#test_unit -->
+
+    <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#test_unit">
+        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#hybrid_fairness_paradigm"/>
+        <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#ML_algorithm"/>
+        <rdfs:label xml:lang="en">test_unit</rdfs:label>
+        <skos:prefLabel xml:lang="en">Test_unit</skos:prefLabel>
+    </owl:NamedIndividual>
+    
+
+
     <!-- https://purl.org/twc/fmo#true_negative_outcome -->
 
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#true_negative_outcome">
@@ -4857,9 +4996,9 @@ sampling of subgroups</skos:definition>
         <rdfs:label>false negative rate</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000233">
+        <obo:IAO_0000118 xml:lang="en">hit rate</obo:IAO_0000118>
         <rdfs:label>true positive rate</rdfs:label>
         <fmo:probabilistic_definition xml:lang="en">P(Ŷ = 1 | Y=1 )</fmo:probabilistic_definition>
-        <obo:IAO_0000118 xml:lang="en">hit rate</obo:IAO_0000118>
         <obo:STATO_0000404 xml:lang="en">TPR</obo:STATO_0000404>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000415">
@@ -4884,28 +5023,31 @@ sampling of subgroups</skos:definition>
         <skos:definition xml:lang="en">Clustering is the task of partitioning the data points into natural groups called
 clusters, such that points within a group are very similar, whereas points between different groups are as dissimilar as possible.</skos:definition>
         <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#clustering_fairness_notion"/>
-        <rdfs:label xml:lang="en">Clustering Problem</rdfs:label>
+        <fmo:tag>exclude</fmo:tag>
         <fmo:probabilistic_definition xml:lang="en">Ŷ = M(X) | Ŷ = {C₁,C₂,...,Cₖ}, C₁∪C₂∪...∪Cₖ = X</fmo:probabilistic_definition>
+        <rdfs:label xml:lang="en">Clustering Problem</rdfs:label>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isbndb.com/book/9780521766333</dc:source>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#Fair-ML_Paradigm">
         <skos:prefLabel xml:lang="en">Fair-ML Paradigm</skos:prefLabel>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</fmo:display_order>
         <skos:definition xml:lang="en">A paradigm is a set of fairness notions that all follow the same principle about how fairness should be achieved: at the group level, at the individual level, or at a combination of both.</skos:definition>
-        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
+        <fmo:category_header xml:lang="en">Define fairness according to any of these ML fairness paradigms:</fmo:category_header>
         <fmo:queryNotion>?notion_uri rdfs:subClassOf+ [a owl:Restriction; owl:onProperty sio:000095; owl:someValuesFrom ?category_uri].</fmo:queryNotion>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
         <rdfs:label xml:lang="en">Fair-ML Paradigm</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#ML_model_result">
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isbndb.com/book/9780521766333</dc:source>
+        <rdfs:label xml:lang="en">ML model result</rdfs:label>
+        <skos:definition xml:lang="en">A result output by a model, given some specific input.</skos:definition>
         <fmo:queryNotion>?notion_uri rdfs:subClassOf+ [a owl:Restriction; owl:onProperty sio:000011; owl:someValuesFrom [a owl:Restriction; owl:onProperty sio:000632; owl:someValuesFrom ?category_uri]].</fmo:queryNotion>
         <skos:prefLabel xml:lang="en">Model Output</skos:prefLabel>
-        <skos:definition xml:lang="en">A result output by a model, given some specific input.</skos:definition>
-        <rdfs:label xml:lang="en">ML model result</rdfs:label>
         <fmo:probabilistic_definition xml:lang="en">Ŷ</fmo:probabilistic_definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#ML_problem">
         <fmo:probabilistic_definition xml:lang="en">Ŷ = M(X)</fmo:probabilistic_definition>
+        <fmo:category_header xml:lang="en">Apply to ML models modeling any of these ML problems:</fmo:category_header>
         <rdfs:label xml:lang="en">ML Problem</rdfs:label>
         <skos:definition xml:lang="en">An ML problem is a problem that an MLmodel is designed to solve. Broadly, these fall into categories based on the kind of output the model needs to prodiuce, such as a label (for classification), continuous value (for regression), or set (for clustering).</skos:definition>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</fmo:display_order>
@@ -4928,8 +5070,8 @@ clusters, such that points within a group are very similar, whereas points betwe
         <rdfs:label xml:lang="en">WAE</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#WYSIWYG">
-        <skos:definition xml:lang="en">Fairness notions in the &quot;What You See is What You Get&quot; worldview assume that any unfairness present in ground truth data is to be trusted and used as-is.</skos:definition>
         <fmo:probabilistic_definition xml:lang="en">There exists a mapping f : CS → OS such that the distortion ρf is at most e for some small e &gt; 0. Or equivalently, the distortion ρ between CS and OS is at most e.</fmo:probabilistic_definition>
+        <skos:definition xml:lang="en">Fairness notions in the &quot;What You See is What You Get&quot; worldview assume that any unfairness present in ground truth data is to be trusted and used as-is.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1609.07236</dc:source>
         <rdfs:label xml:lang="en">WYSIWYG</rdfs:label>
         <resource:hasSynonym xml:lang="en">What You See is What You Get</resource:hasSynonym>
@@ -4939,8 +5081,8 @@ clusters, such that points within a group are very similar, whereas points betwe
         <skos:definition xml:lang="en">A continous value prediction, as output by a regression ML model.</skos:definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#false_negative_outcome">
-        <rdfs:label xml:lang="en">false negative outcome</rdfs:label>
         <obo:IAO_0000118 xml:lang="en">type II error</obo:IAO_0000118>
+        <rdfs:label xml:lang="en">false negative outcome</rdfs:label>
         <skos:definition xml:lang="en">An input incorrectly classified to be false, in relation to some testing dataset which classifies it as true.</skos:definition>
         <obo:IAO_0000118 xml:lang="en">miss</obo:IAO_0000118>
     </rdf:Description>
@@ -4954,22 +5096,25 @@ clusters, such that points within a group are very similar, whereas points betwe
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
         <rdfs:label xml:lang="en">group fairness paradigm</rdfs:label>
         <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#group-level_fairness_notion"/>
+        <skos:definition xml:lang="en">The paradigm of fairness that follows the principle that &quot; groups who differ by their sensitive attributes are treated equally.&quot;</skos:definition>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</fmo:display_order>
-        <obo:IAO_0000602 xml:lang="en">The paradigm of fairness that follows the principle that &quot; groups who differ by their sensitive attributes are treated equally.&quot;</obo:IAO_0000602>
         <skos:prefLabel xml:lang="en">Group Fairness</skos:prefLabel>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#high-level_fairness_notion">
         <skos:prefLabel xml:lang="en">High-Level Notion</skos:prefLabel>
         <rdfs:label xml:lang="en">high-level fairness notion</rdfs:label>
-        <resource:hasSynonym xml:lang="en">high-level notion</resource:hasSynonym>
-        <fmo:queryNotion xml:lang="en">?notion_uri rdfs:subClassOf+ ?category_uri.</fmo:queryNotion>
         <skos:definition xml:lang="en">A high-level notion is a broader and more generalized fairness notion used to group more specialized notions into classifications. It is still mathematically defined, however, and is therefore a full-fledged fairness notion in its own right.
-We group relaxed, strengthened, or otherwise varied forms of some high-level notions together in the same category of fairness notion classification for ease of understanding, though we provide a separate concept for the high-level notion itself (e.g., there are concepts for both the more relaxed &quot;Independence-class notion&quot; and the stricter &quot;Indepdence&quot;).</skos:definition>
+We group relaxed, strengthened, or otherwise varied forms of some high-level notions together in the same category of fairness notion classification for ease of understanding, though we provide a separate concept for the high-level notion itself (e.g., there are concepts for both the more relaxed &quot;Independence-class notion&quot; and the stricter &quot;Independence&quot;).</skos:definition>
+        <fmo:category_header xml:lang="en">Are descended from any of these high-level notions (group fairness only):</fmo:category_header>
+        <resource:hasSynonym xml:lang="en">high-level notion</resource:hasSynonym>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</fmo:display_order>
+        <fmo:queryNotion xml:lang="en">?notion_uri rdfs:subClassOf+ ?category_uri.</fmo:queryNotion>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#hybrid_fairness_paradigm">
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</fmo:display_order>
         <skos:prefLabel xml:lang="en">Hybrid Fairness</skos:prefLabel>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
+        <fmo:tag>exclude</fmo:tag>
         <skos:definition xml:lang="en">The paradigm of fairness that combines elements from both group and individual fairness.</skos:definition>
         <rdfs:label xml:lang="en">hybrid fairness paradigm</rdfs:label>
     </rdf:Description>
@@ -4977,6 +5122,7 @@ We group relaxed, strengthened, or otherwise varied forms of some high-level not
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of Independence: the fairness property satisfied when the predicted outcome variable is independent from protected attributes. 
 In other words, the model&apos;s expected output should not differ for different protected attributes, regardless of other factors such as underlying differences in ground truth data. This notion is closely related to statistical parity: the model should predict the same rates of success for each group.</skos:definition>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</fmo:display_order>
         <rdfs:label xml:lang="en">independence-class fairness notion</rdfs:label>
         <skos:prefLabel xml:lang="en">Independence</skos:prefLabel>
     </rdf:Description>
@@ -4985,6 +5131,8 @@ In other words, the model&apos;s expected output should not differ for different
         <skos:definition xml:lang="en">A family of fairness notions with the common objective to ensure that similar individuals are treated similarly by a model. Some notions in this group may be a relaxed version of &quot;strict&quot; individual fairness (i.e., they may treat similar indivduals differently under certain conditions).</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <rdfs:label xml:lang="en">individual-level fairness notion</rdfs:label>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</fmo:display_order>
+        <fmo:tag>hide</fmo:tag>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#individual_fairness_paradigm">
         <skos:prefLabel xml:lang="en">Individual Fairness</skos:prefLabel>
@@ -5000,24 +5148,29 @@ In other words, the model&apos;s expected output should not differ for different
         <rdfs:label xml:lang="en">k-Medoids</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#loss-class_fairness_notion">
-        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
         <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of loss-based fairness.</skos:definition>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
+        <fmo:category_header>Loss &lt;i&gt;(regression only)&lt;/i&gt;</fmo:category_header>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</fmo:display_order>
         <rdfs:label xml:lang="en">loss-class fairness notion</rdfs:label>
         <skos:prefLabel xml:lang="en">Loss</skos:prefLabel>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#separation-class_fairness_notion">
-        <skos:prefLabel xml:lang="en">Separation</skos:prefLabel>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
+        <skos:prefLabel xml:lang="en">Separation</skos:prefLabel>
         <skos:definition xml:lang="en">Fairness notions in this class are relaxed, strengthened, or otherwise related form of Separation: the fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable.
 In other words, the actual outcome separates the predicted outcome from the sensitive attributes; for each possible actual outcome, the model&apos;s prediction must be independent from sensitive attributes. This is closely related to the notion of error parity or equalized odds: the model should predict the target variable in similar ways for each group, with false positive and false negative rates not varying.</skos:definition>
         <rdfs:label xml:lang="en">separation-class fairness notion</rdfs:label>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</fmo:display_order>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#sufficiency-class_fairness_notion">
         <rdfs:label xml:lang="en">sufficiency-class fairness notion</rdfs:label>
         <skos:prefLabel xml:lang="en">Sufficiency</skos:prefLabel>
+        <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</fmo:display_order>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <skos:definition xml:lang="en">Fairness notions in this class are relaxed, strengthened, or otherwise related forms of Sufficiency: the fairness property satisfied when the ground truth variable is independent of protected attributes, conditionally on the predicted outcome variable.
 In other words, the model&apos;s prediction should be sufficient to predict the ground truth variable by itself -- including the sensitive attributes is unnecesary and will not change the prediction. This is closely related to the notion of group-calibration: for each group, the model&apos;s prediction should give a good prediction of the target variable.</skos:definition>
+        <fmo:category_header>Sufficiency (&lt;i&gt;classification only&lt;/i&gt;)</fmo:category_header>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#true_negative_outcome">
         <rdfs:label xml:lang="en">true negative outcome</rdfs:label>
@@ -5035,6 +5188,7 @@ In other words, the model&apos;s prediction should be sufficient to predict the 
         <fmo:probabilistic_definition xml:lang="en">A mapping f : CS → DS is said to be fair if objects that are close in CS are also close in DS. Specifically, fix two thresholds e, e0. Then f is defined as (e, e0)- fair if for any x, y ∈ P, dP(x, y) ≤ e =⇒ dO(f(x), f(y)) ≤ e0.</fmo:probabilistic_definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.48550/arXiv.1609.07236</dc:source>
         <rdfs:label xml:lang="en">worldview</rdfs:label>
+        <fmo:tag>exclude</fmo:tag>
         <skos:definition xml:lang="en">A worldview is a set of fairness notions that make the same assumptions about the data used to determine whether a model is fair: either that the data should be taken as-is, or that the data is itself unfair and further assumptions must be made about what it would look like if it wasn&apos;t fair.</skos:definition>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</fmo:display_order>
     </rdf:Description>

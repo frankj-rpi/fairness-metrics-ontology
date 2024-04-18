@@ -26,7 +26,9 @@ The following persistent URLs point to the various versions of FMO:
 
 Latest Version (https://purl.org/twc/fmo): This PURL will always point to the most up-to-date version of FMO. The (https://purl.org/heals/fmo) PURL points to the same location.
 
-2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the canonical PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in the paper FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning (*pending*). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
+2023-12-16—FMO-R (https://purl.org/twc/fmo/1.0.1): This is a minor update to FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning. The updates were mainly the addition of a few more metrics and notions, as well as some edits to annotations to existing concepts for increased accuracy and compatibility with the fairness metrics browser.
+
+2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the full release version for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in the paper FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning (*Published at KGSWC*). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
 
 2023-05-09—FMO-R (https://purl.org/heals/fmo/1.0.0): This is an earlier PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, and points to an earlier release of FMO-R. It includes regression, clustering, and related ML concepts, but has been deprecated in favor of the 2023-06-17 release.
 
