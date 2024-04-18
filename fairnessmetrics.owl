@@ -23,21 +23,23 @@
      xmlns:protege="http://protege.stanford.edu/plugins/owl/protege#"
      xmlns:resource="http://semanticscience.org/resource/">
     <owl:Ontology rdf:about="https://purl.org/twc/fmo">
-        <owl:versionIRI rdf:resource="https://purl.org/twc/fmo/1.0.1"/>
-        <owl:imports rdf:resource="http://semanticscience.org/ontology/sio/v1.54/sio-release.owl"/>
+        <owl:versionIRI rdf:resource="https://purl.org/twc/fmo/2.0.0"/>
+        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/stato.owl"/>
+        <owl:imports rdf:resource="http://semanticscience.org/ontology/sio/v1.59/sio-release.owl"/>
         <owl:imports rdf:resource="http://www.a2rd.net.br/mlo/10.0"/>
         <owl:imports rdf:resource="http://www.w3.org/TR/skos-reference/skos-owl1-dl.rdf"/>
-        <owl:imports rdf:resource="http://purl.obolibrary.org/obo/stato.owl"/>
-        <obo:IAO_0000116 xml:lang="en">This version of the ontology has been referred to as &quot;FMO-R&quot; (fairness metrics ontology for classification and regression) and includes fairness concepts for regression, updates to the original ontology&apos;s fairness concepts for classification, and some additional work on fairness concepts for clustering.</obo:IAO_0000116>
+        <obo:IAO_0000116 xml:lang="en">This version of the ontology contains fairness concepts for classification, regression, and clustering. It is the combination of FMO-Class (AKA FMO-C), FMO-R, and FMO-Clust.</obo:IAO_0000116>
         <terms:abstract xml:lang="en">To aid in the development of fair ML models, and provide guidance to researchers on how best to utilize fairness notions and metrics, we present the Fairness Metrics Ontology (FMO). FMO is a comprehensive knowledge resource which defines each fairness notion and metric, describes their use cases, and details the relationships between them. FMO also includes related concepts for describing ML models, such as the statistical metrics used to evaluate them, and defines how each fairness notion can be derived from these metrics. Although FMO can be used as a standalone resource by itself, it is also designed to be used to model fairness information for specific ML models in a Resource Description Framework (RDF) knowledge graph, and can be combined with a reasoner to infer fairness notions a model satisfies according to its evaluation metrics.</terms:abstract>
         <terms:contributor>Deborah L. McGuinness</terms:contributor>
         <terms:contributor>Hannah Powers</terms:contributor>
+        <terms:contributor>Jonathan Li</terms:contributor>
+        <terms:contributor>David Qiu</terms:contributor>
         <terms:contributor>Jamie McCusker</terms:contributor>
         <terms:contributor>Kristin P. Bennett</terms:contributor>
         <terms:contributor>Mohamed Ghalwash</terms:contributor>
         <terms:creator>Jade S. Franklin</terms:creator>
-        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-05-09</terms:issued>
-        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2023-12-16</terms:modified>
+        <terms:issued rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2022-08-02</terms:issued>
+        <terms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2024-04-18</terms:modified>
         <rdfs:label xml:lang="en">Fairness Metrics Ontology</rdfs:label>
     </owl:Ontology>
     
@@ -87,6 +89,18 @@
     <!-- http://purl.org/dc/terms/creator -->
 
     <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000001 -->
+
+    <owl:AnnotationProperty rdf:about="http://semanticscience.org/resource/SIO_000001"/>
+    
+
+
+    <!-- http://semanticscience.org/resource/SIO_000300 -->
+
+    <owl:AnnotationProperty rdf:about="http://semanticscience.org/resource/SIO_000300"/>
     
 
 
@@ -4696,7 +4710,6 @@ sampling of subgroups</skos:definition>
 
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#hybrid_fairness_paradigm">
         <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#test_unit"/>
         <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#Fair-ML_Paradigm"/>
     </owl:NamedIndividual>
     
@@ -4934,8 +4947,8 @@ sampling of subgroups</skos:definition>
     <!-- https://purl.org/twc/fmo#test_unit -->
 
     <owl:NamedIndividual rdf:about="https://purl.org/twc/fmo#test_unit">
-        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#hybrid_fairness_paradigm"/>
         <skos:topConceptOf rdf:resource="https://purl.org/twc/fmo#ML_algorithm"/>
+        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#hybrid_fairness_paradigm"/>
         <rdfs:label xml:lang="en">test_unit</rdfs:label>
         <skos:prefLabel xml:lang="en">Test_unit</skos:prefLabel>
     </owl:NamedIndividual>
@@ -4996,8 +5009,8 @@ sampling of subgroups</skos:definition>
         <rdfs:label>false negative rate</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="http://purl.obolibrary.org/obo/STATO_0000233">
-        <obo:IAO_0000118 xml:lang="en">hit rate</obo:IAO_0000118>
         <rdfs:label>true positive rate</rdfs:label>
+        <obo:IAO_0000118 xml:lang="en">hit rate</obo:IAO_0000118>
         <fmo:probabilistic_definition xml:lang="en">P(Ŷ = 1 | Y=1 )</fmo:probabilistic_definition>
         <obo:STATO_0000404 xml:lang="en">TPR</obo:STATO_0000404>
     </rdf:Description>
@@ -5014,8 +5027,8 @@ sampling of subgroups</skos:definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#Classification_Problem">
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isbndb.com/book/9780521766333</dc:source>
-        <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#classification_fairness_notion"/>
         <skos:definition xml:lang="en">A classification problem is a problem where, for a given set of input features, an ML model must output a class (label) from a predetermined set of classes.</skos:definition>
+        <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#classification_fairness_notion"/>
         <rdfs:label xml:lang="en">Classification Problem</rdfs:label>
         <fmo:probabilistic_definition xml:lang="en">Ŷ = M(X) | Ŷ ∈ {c₁,c₂,...,cₖ}</fmo:probabilistic_definition>
     </rdf:Description>
@@ -5024,8 +5037,8 @@ sampling of subgroups</skos:definition>
 clusters, such that points within a group are very similar, whereas points between different groups are as dissimilar as possible.</skos:definition>
         <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#clustering_fairness_notion"/>
         <fmo:tag>exclude</fmo:tag>
-        <fmo:probabilistic_definition xml:lang="en">Ŷ = M(X) | Ŷ = {C₁,C₂,...,Cₖ}, C₁∪C₂∪...∪Cₖ = X</fmo:probabilistic_definition>
         <rdfs:label xml:lang="en">Clustering Problem</rdfs:label>
+        <fmo:probabilistic_definition xml:lang="en">Ŷ = M(X) | Ŷ = {C₁,C₂,...,Cₖ}, C₁∪C₂∪...∪Cₖ = X</fmo:probabilistic_definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isbndb.com/book/9780521766333</dc:source>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#Fair-ML_Paradigm">
@@ -5033,15 +5046,15 @@ clusters, such that points within a group are very similar, whereas points betwe
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</fmo:display_order>
         <skos:definition xml:lang="en">A paradigm is a set of fairness notions that all follow the same principle about how fairness should be achieved: at the group level, at the individual level, or at a combination of both.</skos:definition>
         <fmo:category_header xml:lang="en">Define fairness according to any of these ML fairness paradigms:</fmo:category_header>
-        <fmo:queryNotion>?notion_uri rdfs:subClassOf+ [a owl:Restriction; owl:onProperty sio:000095; owl:someValuesFrom ?category_uri].</fmo:queryNotion>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
+        <fmo:queryNotion>?notion_uri rdfs:subClassOf+ [a owl:Restriction; owl:onProperty sio:000095; owl:someValuesFrom ?category_uri].</fmo:queryNotion>
         <rdfs:label xml:lang="en">Fair-ML Paradigm</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#ML_model_result">
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://isbndb.com/book/9780521766333</dc:source>
-        <rdfs:label xml:lang="en">ML model result</rdfs:label>
         <skos:definition xml:lang="en">A result output by a model, given some specific input.</skos:definition>
         <fmo:queryNotion>?notion_uri rdfs:subClassOf+ [a owl:Restriction; owl:onProperty sio:000011; owl:someValuesFrom [a owl:Restriction; owl:onProperty sio:000632; owl:someValuesFrom ?category_uri]].</fmo:queryNotion>
+        <rdfs:label xml:lang="en">ML model result</rdfs:label>
         <skos:prefLabel xml:lang="en">Model Output</skos:prefLabel>
         <fmo:probabilistic_definition xml:lang="en">Ŷ</fmo:probabilistic_definition>
     </rdf:Description>
@@ -5081,8 +5094,8 @@ clusters, such that points within a group are very similar, whereas points betwe
         <skos:definition xml:lang="en">A continous value prediction, as output by a regression ML model.</skos:definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#false_negative_outcome">
-        <obo:IAO_0000118 xml:lang="en">type II error</obo:IAO_0000118>
         <rdfs:label xml:lang="en">false negative outcome</rdfs:label>
+        <obo:IAO_0000118 xml:lang="en">type II error</obo:IAO_0000118>
         <skos:definition xml:lang="en">An input incorrectly classified to be false, in relation to some testing dataset which classifies it as true.</skos:definition>
         <obo:IAO_0000118 xml:lang="en">miss</obo:IAO_0000118>
     </rdf:Description>
@@ -5093,8 +5106,8 @@ clusters, such that points within a group are very similar, whereas points betwe
         <skos:definition xml:lang="en">An input incorrectly classified to be true, in relation to some testing dataset which classifies it as false.</skos:definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#group_fairness_paradigm">
-        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
         <rdfs:label xml:lang="en">group fairness paradigm</rdfs:label>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
         <fmo:mapsTo rdf:resource="https://purl.org/twc/fmo#group-level_fairness_notion"/>
         <skos:definition xml:lang="en">The paradigm of fairness that follows the principle that &quot; groups who differ by their sensitive attributes are treated equally.&quot;</skos:definition>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1</fmo:display_order>
@@ -5102,15 +5115,16 @@ clusters, such that points within a group are very similar, whereas points betwe
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#high-level_fairness_notion">
         <skos:prefLabel xml:lang="en">High-Level Notion</skos:prefLabel>
+        <fmo:category_header xml:lang="en">Are descended from any of these high-level notions (group fairness only):</fmo:category_header>
         <rdfs:label xml:lang="en">high-level fairness notion</rdfs:label>
         <skos:definition xml:lang="en">A high-level notion is a broader and more generalized fairness notion used to group more specialized notions into classifications. It is still mathematically defined, however, and is therefore a full-fledged fairness notion in its own right.
 We group relaxed, strengthened, or otherwise varied forms of some high-level notions together in the same category of fairness notion classification for ease of understanding, though we provide a separate concept for the high-level notion itself (e.g., there are concepts for both the more relaxed &quot;Independence-class notion&quot; and the stricter &quot;Independence&quot;).</skos:definition>
-        <fmo:category_header xml:lang="en">Are descended from any of these high-level notions (group fairness only):</fmo:category_header>
         <resource:hasSynonym xml:lang="en">high-level notion</resource:hasSynonym>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</fmo:display_order>
         <fmo:queryNotion xml:lang="en">?notion_uri rdfs:subClassOf+ ?category_uri.</fmo:queryNotion>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#hybrid_fairness_paradigm">
+        <resource:SIO_000001 rdf:resource="https://purl.org/twc/fmo#test_unit"/>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">3</fmo:display_order>
         <skos:prefLabel xml:lang="en">Hybrid Fairness</skos:prefLabel>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
@@ -5137,8 +5151,8 @@ In other words, the model&apos;s expected output should not differ for different
     <rdf:Description rdf:about="https://purl.org/twc/fmo#individual_fairness_paradigm">
         <skos:prefLabel xml:lang="en">Individual Fairness</skos:prefLabel>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/2090236.2090255</dc:source>
-        <rdfs:label xml:lang="en">individual fairness paradigm</rdfs:label>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#int">2</fmo:display_order>
+        <rdfs:label xml:lang="en">individual fairness paradigm</rdfs:label>
         <skos:definition xml:lang="en">The paradigm of fairness that follows the principle of  &quot;similar individuals should be treated similarly.&quot;</skos:definition>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#k-center">
@@ -5148,24 +5162,24 @@ In other words, the model&apos;s expected output should not differ for different
         <rdfs:label xml:lang="en">k-Medoids</rdfs:label>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#loss-class_fairness_notion">
-        <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of loss-based fairness.</skos:definition>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1609/aaai.v34i04.5970</dc:source>
+        <skos:definition xml:lang="en">A fairness notion that is a relaxed, strengthened, or otherwise related form of loss-based fairness.</skos:definition>
         <fmo:category_header>Loss &lt;i&gt;(regression only)&lt;/i&gt;</fmo:category_header>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</fmo:display_order>
         <rdfs:label xml:lang="en">loss-class fairness notion</rdfs:label>
         <skos:prefLabel xml:lang="en">Loss</skos:prefLabel>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#separation-class_fairness_notion">
-        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <skos:prefLabel xml:lang="en">Separation</skos:prefLabel>
+        <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <skos:definition xml:lang="en">Fairness notions in this class are relaxed, strengthened, or otherwise related form of Separation: the fairness property satisfied when the predicted outcome variable is independent of protected attributes, conditionally on the actual outcome variable.
 In other words, the actual outcome separates the predicted outcome from the sensitive attributes; for each possible actual outcome, the model&apos;s prediction must be independent from sensitive attributes. This is closely related to the notion of error parity or equalized odds: the model should predict the target variable in similar ways for each group, with false positive and false negative rates not varying.</skos:definition>
         <rdfs:label xml:lang="en">separation-class fairness notion</rdfs:label>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</fmo:display_order>
     </rdf:Description>
     <rdf:Description rdf:about="https://purl.org/twc/fmo#sufficiency-class_fairness_notion">
-        <rdfs:label xml:lang="en">sufficiency-class fairness notion</rdfs:label>
         <skos:prefLabel xml:lang="en">Sufficiency</skos:prefLabel>
+        <rdfs:label xml:lang="en">sufficiency-class fairness notion</rdfs:label>
         <fmo:display_order rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</fmo:display_order>
         <dc:source rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">https://doi.org/10.1145/3468507.3468511</dc:source>
         <skos:definition xml:lang="en">Fairness notions in this class are relaxed, strengthened, or otherwise related forms of Sufficiency: the fairness property satisfied when the ground truth variable is independent of protected attributes, conditionally on the predicted outcome variable.
