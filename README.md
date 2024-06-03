@@ -30,11 +30,19 @@ Latest Version (https://purl.org/twc/fmo): This PURL will always point to the mo
 
 2023-12-16—FMO-R (https://purl.org/twc/fmo/1.0.1): This is a minor update to FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning. The updates were mainly the addition of a few more metrics and notions, as well as some edits to annotations to existing concepts for increased accuracy and compatibility with the fairness metrics browser.
 
-2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the full release version for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in the paper FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning (*Published at KGSWC*). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
+2023-06-17—FMO-R (https://purl.org/twc/fmo/1.0.0): This is the full release version for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, as described in our KGSWC paper [FMO-R: An Ontology for Reasoning about Fairness in Regression and Machine Learning](https://link.springer.com/chapter/10.1007/978-3-031-47745-4_18). Note that FMO-R also includes concepts relating to classification, and a partial coverage of concepts relating to clustering.
 
 2023-05-09—FMO-R (https://purl.org/heals/fmo/1.0.0): This is an earlier PURL for FMO-R, the Fairness Metrics Ontology for Regression and Machine Learning, and points to an earlier release of FMO-R. It includes regression, clustering, and related ML concepts, but has been deprecated in favor of the 2023-06-17 release.
 
 2022-08-02—FMO-C (https://purl.org/heals/fmo/0.0.0): This is the PURL for FMO-C, the Fairness Metrics Ontology for Classification, as described in the initial paper [An Ontology for Fairness Metrics](https://dl.acm.org/doi/10.1145/3514094.3534137). The (https://purl.org/twc/fmo/0.0.0) PURL also points to this location. Note that FMO-C is deprecated; although FMO-R is backwards-compatible with FMO-C, it also includes several updates to the classification notions and therefore we encourage the usage of FMO-R over FMO-C. 
+
+## Canonical Citation
+
+To cite the fairness metrics ontology as a whole, or the fairness metrics ontology for classification, use: Franklin, J. S., Bhanot, K., Ghalwash, M., Bennett, K. P., McCusker, J., & McGuinness, D. L. (2022, July). An ontology for fairness metrics. In _Proceedings of the 2022 AAAI/ACM Conference on AI, Ethics, and Society_ (pp. 265-275). doi:10.1007/978-3-031-47745-4_18
+
+To cite the fairness metrics ontology for regression, use: Franklin, J. S., Powers, H., Erickson, J. S., McCusker, J., McGuinness, D. L., & Bennett, K. P. (2023, October). An Ontology for Reasoning About Fairness in Regression and Machine Learning. In _Iberoamerican Knowledge Graphs and Semantic Web Conference_ (pp. 243-261). Cham: Springer Nature Switzerland. doi:10.1007/978-3-031-47745-4_18
+
+To cite the fairness metrics ontology for clustering, use our FMO-Clust paper (_publication pending_).
 
 ## About Us
 
