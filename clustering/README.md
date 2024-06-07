@@ -8,7 +8,7 @@ _Persistent URL_: To directly link to the latest OWL file, use [purl.org/twc/fmo
 
 _Canonical Citation_: Use the citation for the fairness metrics ontology for clustering paper (_pending publication_).
 
-_Examples of Usage_: See [Competency Questions](https://github.com/frankj-rpi/fairness-metrics-ontology/blob/main/competency-questions.md) for examples of usage with description logic queries. We are also currently in the process of updating our interactive [fairness metric explorer](https://inciteprojects.idea.rpi.edu/fairness/app/fairness/) to use clustering metrics: see [the explorer repository](https://github.com/tetherless-world/fairness) for examples of usage in a complex application via dynamically generated SPARQL queries.
+_Examples of Usage_: See [Competency Questions](https://github.com/frankj-rpi/fairness-metrics-ontology/blob/main/competency-questions.md) for examples of usage with description logic queries. For details on the FMO-Clust-based analysis of fair clustering models, see [the project report](https://frankj-rpi.github.io/fairness-metrics-ontology/clustering/Fairness%20Evaluation%20of%20Clustering%20Models.html) We are also currently in the process of updating our interactive [fairness metric explorer](https://inciteprojects.idea.rpi.edu/fairness/app/fairness/) to use clustering metrics: see [the explorer repository](https://github.com/tetherless-world/fairness) for examples of usage in a complex application via dynamically generated SPARQL queries.
 
 For more information about the Fairness Metrics Ontology project as a whole, see [the main page](https://github.com/frankj-rpi/fairness-metrics-ontology/blob/main/README.md).
 
